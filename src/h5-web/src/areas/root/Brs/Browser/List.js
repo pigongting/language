@@ -2,14 +2,12 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Modal } from 'antd';
 /* 开源-工具 */
 /* 自研-组件 */
 import BaseTable from '@/components/BaseTable';
 import BaseTableStateBar from '@/components/BaseTable/StateBar';
 import BaseTableActions from '@/components/BaseTable/Actions';
-import BaseTableTypeSearch from '@/components/BaseTable/TypeSearch';
-import FormTypeSearchTree from '@/components/Form/TypeSearchTree';
 /* 自研-工具 */
 import Enums from '@/Enums';
 import { handleParams, search2form, form2search, syncVarIterator } from '@/utilities/util';
@@ -17,6 +15,9 @@ import { handleSearchTable, handleDeleteTable } from '@/utilities/common';
 /* 数据 */
 import { store, history, addAsyncModel } from '@/store';
 import { namespacePrefix, List } from './Model';
+/* 相对路径-组件 */
+import New from './New';
+import Edit from './Edit';
 /* 相对路径-样式 */
 /* 异步数据模型 */
 addAsyncModel(List);
@@ -34,15 +35,14 @@ class ListComponent extends React.Component {
     this.keep = handleParams.url(dispatch, namespace);
 
     this.state = {
-      folded: false,
-    }
+      visibleNew: false,
+      visibleEdit: false,
+    };
   }
 
   componentDidMount() {
     // 重载页面数据
     this.reload();
-    // 获取类型搜索树
-    this.rGetTypeSearchTree();
   }
 
   componentWillUnmount() {
@@ -51,10 +51,7 @@ class ListComponent extends React.Component {
 
   // 重载页面数据
   reload = (params, reset) => {
-    dispatch({
-      type: namespace + '/rGetAll',
-      payload: this.handleReloadParams(params, reset),
-    });
+    dispatch({ type: namespace + '/rGetAll', payload: this.handleReloadParams(params, reset) });
   }
 
   // 处理重载参数
@@ -63,17 +60,15 @@ class ListComponent extends React.Component {
     return handleParams.merge(payload);
   }
 
-  // 获取类型搜索树
-  rGetTypeSearchTree = (params, reset) => {
-    dispatch({
-      type: namespace + '/rGetTypeSearchTree',
-      payload: this.handleReloadParams(params, reset),
-    });
-  }
-
   // 新建
   handleNew = () => {
-    history.push('/kng/knowledge/new');
+    this.setState({ visibleNew: true });
+  }
+
+  // 编辑
+  handleEdit = (id) => {
+    this.editId = id;
+    this.setState({ visibleEdit: true });
   }
 
   // 启用/禁用
@@ -90,8 +85,8 @@ class ListComponent extends React.Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { loading, keep, pagination, typeSearchTree } = this.props.pagedata;
-    const { folded } = this.state;
+    const { loading, keep, pagination } = this.props.pagedata;
+    const { visibleNew } = this.state;
 
     // 操作项
     const operations = [
@@ -106,15 +101,16 @@ class ListComponent extends React.Component {
     // 过滤项
     const filter = getFieldDecorator('name', {
       initialValue: keep.name,
-    })(<Input.Search size="small" placeholder="搜索名称" autoComplete="new-password" allowClear onSearch={handleSearchTable.bind(this)} />);
+    })(<Input.Search size="small" placeholder="搜索名称" autoComplete="off" allowClear onSearch={handleSearchTable.bind(this)} />);
 
     // 过滤项-高级
     const filters = [
-      <Form.Item label="名称">
-        {getFieldDecorator('name', {
+      {
+        label: '名称',
+        render: getFieldDecorator('name', {
           initialValue: keep.name,
-        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="new-password" />)}
-      </Form.Item>,
+        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="off" />)
+      },
     ];
 
     // 字段
@@ -132,7 +128,7 @@ class ListComponent extends React.Component {
         width: 197,
       },
       {
-        title: '代码',
+        title: '编码',
         dataIndex: 'code',
         width: 197,
       },
@@ -158,7 +154,7 @@ class ListComponent extends React.Component {
         width: 100,
         render: (text, record, index) => <BaseTableActions
           actions={[
-            <Link to={'/kng/knowledge/edit?id=' + record.id}>编辑</Link>,
+            <span onClick={this.handleEdit.bind(this, record.id)}>编辑</span>,
             <span onClick={this.handleState.bind(this, record.id, index)}>{record.state === 1 ? '禁用' : '启用'}</span>,
             <span onClick={this.handleDelete.bind(this, record.id, index)}>删除</span>,
           ]}
@@ -166,26 +162,15 @@ class ListComponent extends React.Component {
       },
     ];
 
-    // 类型搜索
-    const typeSearch = getFieldDecorator('parentid', {
-      initialValue: search2form.stringArray(keep.parentid),
-    })(
-      <FormTypeSearchTree
-        treeData={typeSearchTree}
-        onSelect={handleSearchTable.bind(this)}
-        expandedKeys={search2form.stringArray(syncVarIterator.getter(typeSearchTree, 'tree.0.value'))}
-      />
-    );
-
     return (
       <Form onSubmit={handleSearchTable.bind(this)} colon={false}>
-        <BaseTableTypeSearch component={typeSearch} folded={folded}>
-          <BaseTable
-            operation={{ folded, states, filter, filters, operations }}
-            table={{ columns: columns, pagination, loading: loading.rGetAll }}
-            parent={this}
-          />
-        </BaseTableTypeSearch>
+        <BaseTable
+          operation={{ states, filter, filters, operations }}
+          table={{ columns: columns, pagination, loading: loading.rGetAll }}
+          parent={this}
+        />
+        <New visible={this.state.visibleNew} parent={this} />
+        <Edit visible={this.state.visibleEdit} parent={this} />
       </Form>
     );
   }

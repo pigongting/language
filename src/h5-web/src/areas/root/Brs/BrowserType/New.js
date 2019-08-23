@@ -56,20 +56,23 @@ class NewComponent extends React.Component {
       {
         title: '基本信息',
         fields: [
-          <Form.Item label="名称">
-            {getFieldDecorator('name', {
+          {
+            label: '名称',
+            render: getFieldDecorator('name', {
               initialValue: entity.name,
               rules: [{ required: true, message: '请输入名称' }],
-            })(<Input size="small" placeholder="请输入名称" autoComplete="new-password" />)}
-          </Form.Item>,
-          <Form.Item label="编码">
-            {getFieldDecorator('code', {
+            })(<Input size="small" placeholder="请输入名称" autoComplete="new-password" />)
+          },
+          {
+            label: '编码',
+            render: getFieldDecorator('code', {
               initialValue: entity.code,
               rules: [{ required: true, message: '请输入编码' }],
-            })(<Input size="small" placeholder="请输入编码" autoComplete="new-password" />)}
-          </Form.Item>,
-          <Form.Item label="状态">
-            {getFieldDecorator('state', {
+            })(<Input size="small" placeholder="请输入编码" autoComplete="new-password" />)
+          },
+          {
+            label: '状态',
+            render: getFieldDecorator('state', {
               initialValue: entity.state,
               rules: [{ required: true, message: '请选择状态' }],
             })(
@@ -78,18 +81,19 @@ class NewComponent extends React.Component {
                   return (<Radio key={key} value={Number(key)}>{Enums.Common.enableState[key]}</Radio>);
                 })}
               </Radio.Group>
-            )}
-          </Form.Item>,
+            )
+          },
         ],
       },
       {
         title: '选填信息',
         fields: [
-          <Form.Item label="描述">
-            {getFieldDecorator('description', {
+          {
+            label: '描述',
+            render: getFieldDecorator('description', {
               initialValue: entity.description,
-            })(<Input.TextArea rows={4} placeholder="请输入描述" autoComplete="new-password" />)}
-          </Form.Item>,
+            })(<Input.TextArea rows={4} placeholder="请输入描述" autoComplete="new-password" />)
+          },
         ],
       }
     ];

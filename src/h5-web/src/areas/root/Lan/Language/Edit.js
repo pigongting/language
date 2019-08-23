@@ -1,7 +1,7 @@
 /* 开源-组件 */
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Modal, Form, Button, Input, Radio } from 'antd';
+import { Modal, Form, Button, Input, InputNumber, Radio } from 'antd';
 /* 自研-组件 */
 import BaseFormFieldGroup from '@/components/BaseForm/FieldGroup';
 /* 自研-工具 */
@@ -110,7 +110,7 @@ class EditComponent extends React.Component {
     ];
 
     return (
-      <Modal title="编辑浏览器类型" className="modalForm" width={674} footer={null} visible={visible} onCancel={handleModalVisible.bind(this)}>
+      <Modal title="编辑语言" className="modalForm" width={674} footer={null} visible={visible} onCancel={handleModalVisible.bind(this)}>
         <Form onSubmit={this.handleSubmit} colon={false} layout="inline">
           <BaseFormFieldGroup fieldGroup={fieldGroup}/>
           <div className="modalFormFooter">

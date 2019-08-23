@@ -110,7 +110,7 @@ class EditComponent extends React.Component {
     ];
 
     return (
-      <Modal title="编辑浏览器类型" className="modalForm" width={674} footer={null} visible={visible} onCancel={handleModalVisible.bind(this)}>
+      <Modal title="编辑浏览器" className="modalForm" width={674} footer={null} visible={visible} onCancel={handleModalVisible.bind(this)}>
         <Form onSubmit={this.handleSubmit} colon={false} layout="inline">
           <BaseFormFieldGroup fieldGroup={fieldGroup}/>
           <div className="modalFormFooter">

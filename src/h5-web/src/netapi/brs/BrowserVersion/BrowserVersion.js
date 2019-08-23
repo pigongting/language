@@ -7,14 +7,17 @@ import { URL_BRS_BROWSERVERSION, URL_BRS_BROWSERVERSIONS } from '@/netapi/RestAp
 
 /* 默认参数 */
 const defaultParams = {
-  name: '',
+  browserId: 0,
   code: '',
+  name: '',
+  version: 0,
+  releaseDate: '',
   state: 0,
   description: '',
   ext1: '',
   ext2: '',
   ext3: '',
-  ext4: ''
+  ext4: '',
 };
 
 // 新建单条

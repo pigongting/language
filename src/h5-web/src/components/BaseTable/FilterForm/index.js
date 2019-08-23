@@ -60,6 +60,7 @@ class FilterForm extends React.PureComponent {
           <div className={styles.loading}>{loading && <Spin size="small" />}</div>
           <ul className={styles.operationButtons}>{this.generateOperations(operations)}</ul>
           <div className={styles.sampleSearch}>
+            {filter}
             <Button size="small" onClick={this.handleToggleAdvancedMode}>高级搜索</Button>
           </div>
         </div>

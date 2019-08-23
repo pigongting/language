@@ -14,6 +14,12 @@ const proxy = {
   ['PUT /brs/browser/:id']: INTERFACE_URL,
   ['POST /brs/browser']: INTERFACE_URL,
   ['DELETE /brs/browsers']: INTERFACE_URL,
+  // 浏览器版本
+  ['GET /brs/browserversions']: INTERFACE_URL,
+  ['GET /brs/browserversion/:id']: INTERFACE_URL,
+  ['PUT /brs/browserversion/:id']: INTERFACE_URL,
+  ['POST /brs/browserversion']: INTERFACE_URL,
+  ['DELETE /brs/browserversions']: INTERFACE_URL,
 
   // 语言
   // 浏览器

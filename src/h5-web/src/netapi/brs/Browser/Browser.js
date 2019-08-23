@@ -7,6 +7,7 @@ import { URL_BRS_BROWSER, URL_BRS_BROWSERS } from '@/netapi/RestApiUrls';
 
 /* 默认参数 */
 const defaultParams = {
+  browserTypeId: 0,
   name: '',
   code: '',
   state: 0,

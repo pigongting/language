@@ -10,22 +10,16 @@ import { handleFormReset, handleModalVisible } from '@/utilities/common';
 import { search2form, form2search } from '@/utilities/util';
 /* 数据 */
 import { store, history, addAsyncModel } from '@/store';
-import { namespacePrefix, Edit } from './Model';
+import { namespacePrefix, New } from './Model';
 /* 相对路径-样式 */
 /* 异步数据模型 */
-addAsyncModel(Edit);
+addAsyncModel(New);
 /* 命名空间(全局唯一) */
-const namespace = `${namespacePrefix}Edit`;
+const namespace = `${namespacePrefix}New`;
 /* 变量(方便使用) */
 const { dispatch } = store;
 
-class EditComponent extends React.Component {
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.visible !== nextProps.visible && nextProps.visible === true) {
-      this.rGet();
-    }
-  }
+class NewComponent extends React.Component {
 
   componentWillUnmount() {
     dispatch({ type: namespace + '/clean' });
@@ -44,18 +38,13 @@ class EditComponent extends React.Component {
         };
 
         dispatch({
-          type: `${namespace}/rPut`,
+          type: `${namespace}/rPost`,
           payload: Object.assign({}, entity, values),
           callback,
         });
       }
     });
   };
-
-  // 获取单条
-  rGet = (id) => {
-    dispatch({ type: namespace + '/rGet', payload: { id: this.props.parent.editId } });
-  }
 
   render() {
     const { visible } = this.props;
@@ -110,12 +99,12 @@ class EditComponent extends React.Component {
     ];
 
     return (
-      <Modal title="编辑浏览器类型" className="modalForm" width={674} footer={null} visible={visible} onCancel={handleModalVisible.bind(this)}>
+      <Modal title="新建浏览器" className="modalForm" width={674} footer={null} visible={visible} onCancel={handleModalVisible.bind(this)}>
         <Form onSubmit={this.handleSubmit} colon={false} layout="inline">
           <BaseFormFieldGroup fieldGroup={fieldGroup}/>
           <div className="modalFormFooter">
             <Button onClick={handleFormReset.bind(this)}>重置</Button>
-            <Button type="primary" htmlType="submit" loading={loading.rPut}>提交</Button>
+            <Button type="primary" htmlType="submit" loading={loading.rPost}>提交</Button>
           </div>
         </Form>
       </Modal>
@@ -127,10 +116,10 @@ function mapStateToProps(state, ownProps) {
   return {
     pagedata: Object.assign({ ...state[namespace] }, {
       loading: {
-        rPut: state.loading.effects[`${namespace}/rPut`],
+        rPost: state.loading.effects[`${namespace}/rPost`],
       }
     })
   };
 }
 
-export default connect(mapStateToProps)(Form.create()(EditComponent));
+export default connect(mapStateToProps)(Form.create()(NewComponent));
