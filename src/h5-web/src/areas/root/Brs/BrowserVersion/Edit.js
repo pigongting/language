@@ -82,6 +82,20 @@ class EditComponent extends React.Component {
             })(<Input size="small" placeholder="请输入编码" autoComplete="new-password" />)
           },
           {
+            label: '版本',
+            render: getFieldDecorator('version', {
+              initialValue: entity.version,
+              rules: [{ required: true, message: '请输入版本' }],
+            })(<Input size="small" placeholder="请输入版本" autoComplete="new-password" />)
+          },
+          {
+            label: '发布日期',
+            render: getFieldDecorator('releaseDate', {
+              initialValue: entity.releaseDate,
+              rules: [{ required: true, message: '请输入发布日期' }],
+            })(<Input size="small" placeholder="请输入发布日期" autoComplete="new-password" />)
+          },
+          {
             label: '状态',
             render: getFieldDecorator('state', {
               initialValue: entity.state,

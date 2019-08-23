@@ -133,6 +133,16 @@ class ListComponent extends React.Component {
         width: 197,
       },
       {
+        title: '版本',
+        dataIndex: 'version',
+        width: 197,
+      },
+      {
+        title: '发布日期',
+        dataIndex: 'releaseDate',
+        width: 197,
+      },
+      {
         title: '描述',
         dataIndex: 'description',
         width: 197,
