@@ -47,7 +47,7 @@ export default {
     setup({ history }) {
       return history.listen(({ pathname, search }) => {
         // 本地验证token
-        localVerifyToken();
+        // localVerifyToken();
       });
     },
   },

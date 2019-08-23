@@ -150,7 +150,7 @@ class FormTypeSearchTree extends React.Component {
     return (
       <div className={styles.typeSearch}>
         <div className={styles.searchHeader}>
-          <Input.Search size="small" placeholder={'请输入搜索关键字'} autoComplete="off" allowClear onSearch={this.handleSearch} />
+          <Input.Search size="small" placeholder={'请输入搜索关键字'} autoComplete="new-password" allowClear onSearch={this.handleSearch} />
         </div>
         <Tree
           onSelect={this.handleSelect}

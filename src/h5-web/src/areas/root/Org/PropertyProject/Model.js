@@ -80,7 +80,7 @@ export default {
         const responsePut = yield call(rPutOrgEmployee, Object.assign(response, { state: stateNew } ));
         if (responsePut === undefined) { return; }
 
-        // 更新本地状态
+        // 获取本地状态
         const pagination = yield select(state => state[`${namespacePrefix}List`].pagination);
 
         // 修改本地状态

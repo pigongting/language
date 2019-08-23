@@ -74,7 +74,96 @@ export function handleFormReset() {
 export function handleModalVisible() {
   this.props.parent.setState({
     visibleNew: false,
+    visibleEdit: false,
   }, () => {
     this.props.form.resetFields();
   });
 }
+
+
+
+
+// effects
+
+/**
+ * 查询多条-分页
+ */
+export function* rGetAll(getAllMethod, { payload }, { call, put, select }) {
+  const response = yield call(getAllMethod, payload);
+  if (response === undefined) { return; }
+
+  yield put({ type: 'save', payload: { keep: payload, pagination: response }});
+}
+
+/**
+ * 删除多条
+ */
+export function* rDelete(namespace, deleteMethod, { payload, index }, { call, put, select }) {
+  const response = yield call(deleteMethod, payload);
+  if (response === undefined) { return; }
+
+  // 获取本地数据
+  const pagination = yield select(state => state[namespace].pagination);
+
+  // 删除本地数据
+  pagination.entities.splice(index, 1);
+
+  // 更新本地数据
+  yield put({ type: 'save', payload: { pagination }});
+}
+
+/**
+ * 启用禁用
+ */
+export function* rPutState(namespace, getMethod, putMethod, { payload, index }, { call, put, select }) {
+  // 获取原始数据
+  const response = yield call(getMethod, payload);
+  if (response === undefined) { return; }
+
+  // 修改状态
+  const stateOld = response.state;
+  const stateNew = (stateOld === 1) ? 2 : 1;
+
+  // 修改远程状态
+  const responsePut = yield call(putMethod, Object.assign(response, { state: stateNew } ));
+  if (responsePut === undefined) { return; }
+
+  // 获取本地状态
+  const pagination = yield select(state => state[namespace].pagination);
+
+  // 修改本地状态
+  pagination.entities[index]['state'] = stateNew;
+
+  // 更新本地状态
+  yield put({ type: 'save', payload: { pagination }});
+}
+
+/**
+ * 新建单条
+ */
+export function* rPost(postMethod, { payload, callback }, { call, put, select }) {
+  const response = yield call(postMethod, payload);
+  if (response === undefined) { return; }
+  callback && callback();
+}
+
+/**
+ * 获取单条
+ */
+export function* rGet(getMethod, { payload }, { call, put, select }) {
+  const response = yield call(getMethod, payload);
+  if (response === undefined) { return; }
+
+  yield put({ type: 'save', payload: { entity: response }});
+}
+
+/**
+ * 编辑单条
+ */
+export function* rPut(putMethod, { payload, callback }, { call, put, select }) {
+  const response = yield call(putMethod, payload);
+  if (response === undefined) { return; }
+  callback && callback();
+}
+
+

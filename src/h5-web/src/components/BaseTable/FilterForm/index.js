@@ -1,7 +1,7 @@
 /* 开源-组件 */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Row, Col, Button, Icon, Input, Spin } from 'antd';
+import { Row, Col, Button, Icon, Input, Spin, Form } from 'antd';
 /* 开源-工具 */
 import classNames from 'classnames';
 /* 自研-组件 */
@@ -27,7 +27,9 @@ class FilterForm extends React.PureComponent {
   generateFilters = (filters) => {
     return filters.map((filter, index) => {
       return (
-        <Col md={12} sm={24} key={index}>{filter}</Col>
+        <Col md={12} sm={24} key={index}>
+          <Form.Item label={filter.label}>{filter.render}</Form.Item>
+        </Col>
       );
     });
   }
@@ -58,7 +60,6 @@ class FilterForm extends React.PureComponent {
           <div className={styles.loading}>{loading && <Spin size="small" />}</div>
           <ul className={styles.operationButtons}>{this.generateOperations(operations)}</ul>
           <div className={styles.sampleSearch}>
-            {filter}
             <Button size="small" onClick={this.handleToggleAdvancedMode}>高级搜索</Button>
           </div>
         </div>

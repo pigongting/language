@@ -5,13 +5,15 @@ import { Table } from 'antd';
 import classNames from 'classnames';
 /* 自研-组件 */
 import FilterForm from '@/components/BaseTable/FilterForm';
+/* 自研-工具 */
+import { handleResetTable, handleChangeTable, handleFoldTree } from '@/utilities/common';
 /* 相对路径-样式 */
 import styles from './index.less';
 
 class BaseTable extends React.PureComponent {
 
   render() {
-    const { title, operation, table, handle } = this.props;
+    const { title, operation, table, parent } = this.props;
     const { entities, totalRecords, pageSize, pageIndex } = table.pagination;
 
     return (
@@ -21,10 +23,10 @@ class BaseTable extends React.PureComponent {
           states={operation.states}
           filter={operation.filter}
           filters={operation.filters}
-          onReset={handle.resetTable}
+          onReset={handleResetTable.bind(parent)}
           loading={table.loading}
           operations={operation.operations}
-          onFold={handle.foldTree}
+          onFold={handleFoldTree.bind(parent)}
         />
         <div className={classNames(styles.baseContentTable, table.className)}>
           <Table
@@ -44,7 +46,7 @@ class BaseTable extends React.PureComponent {
               showSizeChanger: true,
               showQuickJumper: true,
             }}
-            onChange={handle.changeTable}
+            onChange={handleChangeTable.bind(parent)}
           />
         </div>
         <div className={styles.baseContentFooter}></div>

@@ -2,21 +2,21 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Form, Input, Button, Modal } from 'antd';
+import { Form, Input, Button } from 'antd';
 /* 开源-工具 */
 /* 自研-组件 */
 import BaseTable from '@/components/BaseTable';
 import BaseTableStateBar from '@/components/BaseTable/StateBar';
 import BaseTableActions from '@/components/BaseTable/Actions';
+import BaseTableTypeSearch from '@/components/BaseTable/TypeSearch';
+import FormTypeSearchTree from '@/components/Form/TypeSearchTree';
 /* 自研-工具 */
 import Enums from '@/Enums';
 import { handleParams, search2form, form2search, syncVarIterator } from '@/utilities/util';
-import { handleSearchTable, handleResetTable, handleChangeTable, handleDeleteTable } from '@/utilities/common';
+import { handleSearchTable, handleDeleteTable } from '@/utilities/common';
 /* 数据 */
 import { store, history, addAsyncModel } from '@/store';
 import { namespacePrefix, List } from './Model';
-/* 相对路径-组件 */
-import New from './New';
 /* 相对路径-样式 */
 /* 异步数据模型 */
 addAsyncModel(List);
@@ -34,16 +34,15 @@ class ListComponent extends React.Component {
     this.keep = handleParams.url(dispatch, namespace);
 
     this.state = {
-      visibleNew: false,
-      visibleEdit: false,
-    };
+      folded: false,
+    }
   }
 
   componentDidMount() {
     // 重载页面数据
     this.reload();
-    // 获取部门列表
-    this.rGetAllDepartment();
+    // 获取类型搜索树
+    this.rGetTypeSearchTree();
   }
 
   componentWillUnmount() {
@@ -61,42 +60,20 @@ class ListComponent extends React.Component {
   // 处理重载参数
   handleReloadParams = (params, reset) => {
     const payload = handleParams.page.call(this, params, reset);
-
-    if (payload) {
-      form2search.cascader(payload, 'parentid');
-    }
-
     return handleParams.merge(payload);
   }
 
-  // 获取部门列表
-  rGetAllDepartment = () => {
+  // 获取类型搜索树
+  rGetTypeSearchTree = (params, reset) => {
     dispatch({
-      type: namespace + '/rGetAllDepartment',
-      payload: {},
-    });
-  }
-
-  // 导出
-  handleExport = () => {
-    dispatch({
-      type: namespace + '/rExport',
-      payload: this.handleReloadParams(),
+      type: namespace + '/rGetTypeSearchTree',
+      payload: this.handleReloadParams(params, reset),
     });
   }
 
   // 新建
   handleNew = () => {
-    this.setState({ visibleNew: true });
-  }
-
-  // 启用/禁用
-  handleState = (id, index) => {
-    dispatch({
-      type: namespace + '/rPutState',
-      payload: { id },
-      index,
-    });
+    history.push('/org/employee/new');
   }
 
   // 删除
@@ -112,12 +89,12 @@ class ListComponent extends React.Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { loading, keep, pagination, treeData } = this.props.pagedata;
+    const { loading, keep, pagination, typeSearchTree } = this.props.pagedata;
+    const { folded } = this.state;
 
     // 操作项
     const operations = [
       <Button size="small" type="primary" onClick={this.handleNew}>新建</Button>,
-      <Button size="small" onClick={this.handleExport}>导出</Button>,
     ];
 
     // 状态
@@ -126,20 +103,15 @@ class ListComponent extends React.Component {
     })(<BaseTableStateBar data={Enums.Common.enableState} onChangeSatae={handleSearchTable.bind(this)} />);
 
     // 过滤项
-    const filter = getFieldDecorator('account', {
-      initialValue: keep.account,
-    })(<Input.Search size="small" placeholder="搜索账号" autoComplete="new-password" allowClear onSearch={handleSearchTable.bind(this)} />);
+    const filter = getFieldDecorator('name', {
+      initialValue: keep.name,
+    })(<Input.Search size="small" placeholder="搜索名称" autoComplete="new-password" allowClear onSearch={handleSearchTable.bind(this)} />);
 
     // 过滤项-高级
     const filters = [
-      <Form.Item label="账号">
-        {getFieldDecorator('account', {
-          initialValue: keep.account,
-        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="new-password" />)}
-      </Form.Item>,
-      <Form.Item label="真实姓名">
-        {getFieldDecorator('truename', {
-          initialValue: keep.truename,
+      <Form.Item label="名称">
+        {getFieldDecorator('name', {
+          initialValue: keep.name,
         })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="new-password" />)}
       </Form.Item>,
     ];
@@ -154,20 +126,22 @@ class ListComponent extends React.Component {
         width: 50,
       },
       {
-        title: '项目名称',
+        title: '名称',
         dataIndex: 'name',
         fixed: 'left',
         width: 197,
       },
       {
-        title: '城市',
-        dataIndex: 'adminAreaName',
-        width: 89,
+        title: '代码',
+        dataIndex: 'code',
+        fixed: 'left',
+        width: 197,
       },
       {
-        title: '详细地址',
-        dataIndex: 'address',
-        width: 377,
+        title: '描述',
+        dataIndex: 'description',
+        fixed: 'left',
+        width: 197,
       },
       {
         title: '状态',
@@ -187,28 +161,33 @@ class ListComponent extends React.Component {
         render: (text, record, index) => <BaseTableActions
           actions={[
             <Link to={'/org/employee/edit?id=' + record.id}>编辑</Link>,
-            <Link to={'/org/employee/setting?id=' + record.id}>配置</Link>,
-            <span onClick={this.handleState.bind(this, record.id, index)}>{record.state === 1 ? '禁用' : '启用'}</span>,
             <span onClick={this.handleDelete.bind(this, record.id, index)}>删除</span>,
           ]}
         />,
       },
     ];
 
+    // 类型搜索
+    const typeSearch = getFieldDecorator('parentid', {
+      initialValue: search2form.stringArray(keep.parentid),
+    })(
+      <FormTypeSearchTree
+        treeData={typeSearchTree}
+        onSelect={handleSearchTable.bind(this)}
+        expandedKeys={search2form.stringArray(syncVarIterator.getter(typeSearchTree, 'tree.0.value'))}
+      />
+    );
+
     return (
-      <Fragment>
-        <Form onSubmit={handleSearchTable.bind(this)}>
+      <Form onSubmit={handleSearchTable.bind(this)} colon={false}>
+        <BaseTableTypeSearch component={typeSearch} folded={folded}>
           <BaseTable
-            operation={{ states, filter, filters, operations }}
-            table={{ columns, pagination, loading: loading.rGetAll }}
-            handle={{
-              resetTable: handleResetTable.bind(this),
-              changeTable: handleChangeTable.bind(this),
-            }}
+            operation={{ folded, states, filter, filters, operations }}
+            table={{ columns: columns, pagination, loading: loading.rGetAll }}
+            parent={this}
           />
-        </Form>
-        <New visible={this.state.visibleNew} parent={this} />
-      </Fragment>
+        </BaseTableTypeSearch>
+      </Form>
     );
   }
 }

@@ -39,4 +39,10 @@ export default {
   DEFAULT_EMPTY_TIME: '1900-01-01 00:00:00',
   // end default empty time
   // ====================================================
+
+  // ====================================================
+  // begin default tree
+  DEFAULT_TREE: { mapping: {}, sourceMapping: {}, tree: [], loadedKeys: [] },
+  // end default tree
+  // ====================================================
 }

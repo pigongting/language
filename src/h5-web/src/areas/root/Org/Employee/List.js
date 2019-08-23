@@ -119,19 +119,19 @@ class ListComponent extends React.Component {
     // 过滤项
     const filter = getFieldDecorator('account', {
       initialValue: keep.account,
-    })(<Input.Search size="small" placeholder="搜索账号" autoComplete="off" allowClear onSearch={handleSearchTable.bind(this)} />);
+    })(<Input.Search size="small" placeholder="搜索账号" autoComplete="new-password" allowClear onSearch={handleSearchTable.bind(this)} />);
 
     // 过滤项-高级
     const filters = [
       <Form.Item label="账号">
         {getFieldDecorator('account', {
           initialValue: keep.account,
-        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="off" />)}
+        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="new-password" />)}
       </Form.Item>,
       <Form.Item label="真实姓名">
         {getFieldDecorator('truename', {
           initialValue: keep.truename,
-        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="off" />)}
+        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="new-password" />)}
       </Form.Item>,
     ];
 

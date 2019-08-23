@@ -139,25 +139,25 @@ class NewComponent extends React.Component {
             {getFieldDecorator('name', {
               initialValue: entity.name,
               rules: [{ required: true, message: '请输入项目名称' }],
-            })(<Input size="small" placeholder="请输入项目名称" autoComplete="off" />)}
+            })(<Input size="small" placeholder="请输入项目名称" autoComplete="new-password" />)}
           </Form.Item>,
           <Form.Item label="项目简称">
             {getFieldDecorator('shortName', {
               initialValue: entity.shortName,
               rules: [{ required: true, message: '请输入项目简称' }],
-            })(<Input size="small" placeholder="请输入项目简称" autoComplete="off" />)}
+            })(<Input size="small" placeholder="请输入项目简称" autoComplete="new-password" />)}
           </Form.Item>,
           <Form.Item label="项目编号">
             {getFieldDecorator('no', {
               initialValue: entity.no,
               rules: [{ required: true, message: '请输入项目编号' }],
-            })(<Input size="small" placeholder="请输入项目编号" autoComplete="off" />)}
+            })(<Input size="small" placeholder="请输入项目编号" autoComplete="new-password" />)}
           </Form.Item>,
           <Form.Item label="详细地址">
             {getFieldDecorator('address', {
               initialValue: entity.address,
               rules: [{ required: true, message: '请输入详细地址' }],
-            })(<Input size="small" placeholder="请输入详细地址" autoComplete="off" />)}
+            })(<Input size="small" placeholder="请输入详细地址" autoComplete="new-password" />)}
           </Form.Item>,
           <Form.Item label="状态">
             {getFieldDecorator('state', {
@@ -179,7 +179,7 @@ class NewComponent extends React.Component {
           <Form.Item label="描述">
             {getFieldDecorator('description', {
               initialValue: entity.description,
-            })(<Input.TextArea rows={4} placeholder="请输入描述" autoComplete="off" />)}
+            })(<Input.TextArea rows={4} placeholder="请输入描述" autoComplete="new-password" />)}
           </Form.Item>,
         ],
       }

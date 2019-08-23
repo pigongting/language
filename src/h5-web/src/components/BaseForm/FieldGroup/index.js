@@ -1,6 +1,6 @@
 /* 开源-组件 */
 import React, { Fragment } from 'react';
-import { Collapse, Row, Col } from 'antd';
+import { Collapse, Row, Col, Form } from 'antd';
 /* 相对路径-样式 */
 import styles from './index.less';
 
@@ -15,7 +15,7 @@ class FieldGroup extends React.PureComponent {
           {fieldGroup.map((item, index) => {
             return (
               <Collapse.Panel header={item.title} key={index}>
-                {item.fields.map((field, i) => <Fragment key={i}>{field}</Fragment>)}
+                {item.fields.map((field, i) => <Form.Item key={i} label={field.label}>{field.render}</Form.Item>)}
               </Collapse.Panel>
             );
           })}

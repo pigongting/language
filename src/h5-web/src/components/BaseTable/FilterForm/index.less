@@ -11,9 +11,9 @@
   .operationBar {
     display: flex;
 
-    height: 33px;
+    height: 32px;
     background-color: #f8f8f8;
-    border-top: 1px solid #e8e8e8;
+    // border-top: 1px solid #e8e8e8;
 
     // 折叠
     .baseContentTreeFold {
@@ -70,9 +70,12 @@
 
       input {
         position: relative;
+        padding-right: 48px;
+      }
+      
+      input:not(:last-child) {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        padding-right: 48px;
       }
 
       input:hover {
@@ -82,9 +85,12 @@
       input:focus {
         z-index: 1;
       }
-
+      
       button {
         vertical-align: top;
+      }
+
+      button:not(:first-child) {
         margin-left: -1px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;

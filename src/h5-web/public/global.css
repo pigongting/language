@@ -1,4 +1,7 @@
 /* 弹窗表单 */
+input { vertical-align: top; }
+
+/* 弹窗表单 */
 .modalForm .ant-modal-body {
   padding: 0;
 }
@@ -8,6 +11,7 @@
 .modalFormFooter {
   text-align: right;
   padding: 10px 16px;
+  border-top: 1px solid #e8e8e8;
 }
 .modalFormFooter button {
   margin-left: 8px;
