@@ -124,16 +124,26 @@ export const nonMenuRouters = [
     chunkName: 'shared-Exception500',
     moduleId: './src/areas/shared/Exception/500.js',
   },
-  // 员工
+  // 知识点
   {
-    id: 9801,
-    parentId: 98,
-    level: 5,
-    path: '1|2|86|98|9801',
-    name: '新建员工',
-    hashPath: '/org/employee/new',
-    chunkName: 'root-OrgEmployeeNew',
-    moduleId: './src/areas/root/Org/Employee/New.js',
+    id: 1001,
+    parentId: 10,
+    level: 4,
+    path: '1|8|10|1001',
+    name: '新建知识点',
+    hashPath: '/kng/knowledge/new',
+    chunkName: 'root-KngKnowledgeNew',
+    moduleId: './src/areas/root/Kng/Knowledge/New.js',
+  },
+  {
+    id: 1002,
+    parentId: 10,
+    level: 4,
+    path: '1|8|10|1002',
+    name: '编辑知识点',
+    hashPath: '/kng/knowledge/edit',
+    chunkName: 'root-KngKnowledgeEdit',
+    moduleId: './src/areas/root/Kng/Knowledge/Edit.js',
   },
 ];
 

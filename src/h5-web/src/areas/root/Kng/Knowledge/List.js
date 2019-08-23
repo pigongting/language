@@ -73,17 +73,18 @@ class ListComponent extends React.Component {
 
   // 新建
   handleNew = () => {
-    history.push('/org/employee/new');
+    history.push('/kng/knowledge/new');
+  }
+
+  // 启用/禁用
+  handleState = (id, index) => {
+    dispatch({ type: namespace + '/rPutState', payload: { id }, index });
   }
 
   // 删除
   handleDelete = (id, index) => {
     handleDeleteTable(() => {
-      dispatch({
-        type: namespace + '/rDelete',
-        payload: { ids: id },
-        index,
-      });
+      dispatch({ type: namespace + '/rDelete', payload: { ids: id }, index });
     });
   }
 
@@ -160,7 +161,8 @@ class ListComponent extends React.Component {
         width: 100,
         render: (text, record, index) => <BaseTableActions
           actions={[
-            <Link to={'/org/employee/edit?id=' + record.id}>编辑</Link>,
+            <Link to={'/kng/knowledge/edit?id=' + record.id}>编辑</Link>,
+            <span onClick={this.handleState.bind(this, record.id, index)}>{record.state === 1 ? '禁用' : '启用'}</span>,
             <span onClick={this.handleDelete.bind(this, record.id, index)}>删除</span>,
           ]}
         />,
