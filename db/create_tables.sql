@@ -1,5 +1,5 @@
 
-CREATE TABLE `t_language` (
+CREATE TABLE `t_lan_language` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `code` VARCHAR(31) NOT NULL DEFAULT '' COMMENT '代码',
@@ -21,7 +21,7 @@ CREATE TABLE `t_language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='语言表';
 
 
-CREATE TABLE `t_knowledge_category` (
+CREATE TABLE `t_kng_knowledge_category` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `parent_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '父级id',
@@ -48,7 +48,7 @@ CREATE TABLE `t_knowledge_category` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='知识点分类表';
 
 
-CREATE TABLE `t_knowledge` (
+CREATE TABLE `t_kng_knowledge` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `code` VARCHAR(31) NOT NULL DEFAULT '' COMMENT '代码',
@@ -70,7 +70,7 @@ CREATE TABLE `t_knowledge` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='知识点表';
 
 
-CREATE TABLE `t_knowledge_attachment` (
+CREATE TABLE `t_kng_knowledge_attachment` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `knowledge_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '知识点表id',
@@ -89,7 +89,7 @@ CREATE TABLE `t_knowledge_attachment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='知识点-附加属性表';
 
 
-CREATE TABLE `t_knowledge_relation` (
+CREATE TABLE `t_kng_knowledge_relation` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `knowledge_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '知识点表id',
@@ -111,7 +111,7 @@ CREATE TABLE `t_knowledge_relation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='知识点-知识点 关联表';
 
 
-CREATE TABLE `t_knowledge_language` (
+CREATE TABLE `t_kng_knowledge_language` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `language_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '语言表id',
@@ -133,7 +133,7 @@ CREATE TABLE `t_knowledge_language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='知识点-语言 关联表';
 
 
-CREATE TABLE `t_knowledge_knowledge_category` (
+CREATE TABLE `t_kng_knowledge_knowledge_category` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `knowledge_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '知识点表id',
@@ -155,12 +155,13 @@ CREATE TABLE `t_knowledge_knowledge_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='知识点-知识点分类 关联表';
 
 
-CREATE TABLE `t_knowledge_browser_version_full_support` (
+CREATE TABLE `t_kng_knowledge_browser_version` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `knowledge_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '知识点表id',
 
-  `browser_version_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '浏览器版本表id-第一个完全支持的版本',
+  `full_support_browser_version_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '浏览器版本表id-第一个完全支持的版本',
+  `hack_support_browser_version_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '浏览器版本表id-第一个特殊支持的版本',
 
   `state` INT(11) NOT NULL DEFAULT 0 COMMENT '状态 0-全部, 1-启用, 2-禁用',
   `description` VARCHAR(255) NOT NULL COMMENT '描述',
@@ -175,33 +176,10 @@ CREATE TABLE `t_knowledge_browser_version_full_support` (
   `meta_logic_flag` INT(11) NOT NULL DEFAULT '0',
 
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='知识点-浏览器版本-完全支持 关联表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='知识点-浏览器版本 关联表';
 
 
-CREATE TABLE `t_knowledge_browser_version_hack_support` (
-  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-
-  `knowledge_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '知识点表id',
-
-  `browser_version_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '浏览器版本表id-第一个特殊支持的版本',
-
-  `state` INT(11) NOT NULL DEFAULT 0 COMMENT '状态 0-全部, 1-启用, 2-禁用',
-  `description` VARCHAR(255) NOT NULL COMMENT '描述',
-
-  `ext_1` VARCHAR(256) NOT NULL DEFAULT '',
-  `ext_2` VARCHAR(256) NOT NULL DEFAULT '',
-  `ext_3` VARCHAR(256) NOT NULL DEFAULT '',
-  `ext_4` VARCHAR(256) NOT NULL DEFAULT '',
-
-  `meta_created` DATETIME NOT NULL COMMENT '创建时间',
-  `meta_updated` DATETIME NOT NULL COMMENT '最后一次修改时间',
-  `meta_logic_flag` INT(11) NOT NULL DEFAULT '0',
-
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='知识点-浏览器版本-特殊支持 映射表';
-
-
-CREATE TABLE `t_browser_type` (
+CREATE TABLE `t_brs_browser_type` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `code` VARCHAR(31) NOT NULL DEFAULT '' COMMENT '代码',
@@ -223,7 +201,7 @@ CREATE TABLE `t_browser_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='浏览器类型表';
 
 
-CREATE TABLE `t_browser` (
+CREATE TABLE `t_brs_browser` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `browser_type_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '浏览器类型表id',
@@ -247,7 +225,7 @@ CREATE TABLE `t_browser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='浏览器表';
 
 
-CREATE TABLE `t_browser_version` (
+CREATE TABLE `t_brs_browser_version` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 
   `browser_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '浏览器表id',

@@ -1,0 +1,31 @@
+@import '~antd/components/style/themes/default.less';
+
+.treeModal {
+  :global(.ant-modal-body) {
+    padding: 0;
+  }
+  :global(.ant-row) {
+    height: 100%;
+  }
+  :global(.ant-col-12) {
+    height: 100%;
+    overflow: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    position: relative;
+
+    &:first-child {
+      border-right: 1px solid @border-color-split;
+    }
+  }
+}
+
+.selectedNodes {
+  padding: 3px 0;
+  list-style: none;
+
+  li {
+    padding: 4px 0;
+    line-height: 24px;
+  }
+}

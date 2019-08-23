@@ -1,0 +1,1656 @@
+{
+	"info": {
+		"_postman_id": "df4f89ed-cd62-426f-8e9d-4a8d0165f89e",
+		"name": "language",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "brs",
+			"item": [
+				{
+					"name": "browser",
+					"item": [
+						{
+							"name": "/brs/browsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browsers?name=&pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browsers"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": ""
+										},
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browser/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browser/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browser",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browsers?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browsers?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browsers"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browser",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"browserTypeId\": 3,\r\n  \"code\": \"\",\r\n  \"name\": \"Test\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/brs/browser",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browser/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"browserTypeId\": 3,\r\n  \"code\": \"\",\r\n  \"name\": \"Test2\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/brs/browser/14",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browser",
+										"14"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "browsertype",
+					"item": [
+						{
+							"name": "/brs/browsertypes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browsertypes?name=&pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browsertypes"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": ""
+										},
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browsertype/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browsertype/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browsertype",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browsertypes?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browsertypes?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browsertypes"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browsertype",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"code\": \"\",\r\n  \"name\": \"Test\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/brs/browsertype",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browsertype"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browsertype/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"code\": \"\",\r\n  \"name\": \"Test2\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/brs/browsertype/4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browsertype",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "browserversion",
+					"item": [
+						{
+							"name": "/brs/browserversions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browserversions?name=&pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browserversions"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": ""
+										},
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browserversion/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browserversion/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browserversion",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browserversions?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/brs/browserversions?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browserversions"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browserversion",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"browserId\": 2,\r\n  \"code\": \"\",\r\n  \"name\": \"Test\",\r\n  \"version\": 18,\r\n  \"releaseDate\": \"2011-08-09 00:00:00\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/brs/browserversion",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browserversion"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/brs/browserversion/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"browserId\": 2,\r\n  \"code\": \"\",\r\n  \"name\": \"Test-put\",\r\n  \"version\": 18,\r\n  \"releaseDate\": \"2011-08-09 00:00:00\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/brs/browserversion/4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"brs",
+										"browserversion",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "lan",
+			"item": [
+				{
+					"name": "/lan/languages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8010/lan/languages?name=&pageindex=0&pagesize=10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"lan",
+								"languages"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								},
+								{
+									"key": "pageindex",
+									"value": "0"
+								},
+								{
+									"key": "pagesize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/lan/language/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8010/lan/language/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"lan",
+								"language",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/lan/languages?ids=1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8010/lan/languages?ids=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"lan",
+								"languages"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/lan/language",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"code\": \"\",\r\n  \"name\": \"Test\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://localhost:8010/lan/language",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"lan",
+								"language"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/lan/language/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"code\": \"\",\r\n  \"name\": \"Test2\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://localhost:8010/lan/language/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"lan",
+								"language",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kng",
+			"item": [
+				{
+					"name": "knowledges",
+					"item": [
+						{
+							"name": "/kng/knowledges",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledges?name=&pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledges"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": ""
+										},
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledge/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledge/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledge",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledges?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledges?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledges"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledge",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"code\": \"\",\r\n  \"name\": \"Test\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledge",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledge"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledge/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"code\": \"\",\r\n  \"name\": \"Test2\",\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledge/4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledge",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "knowledgeattachment",
+					"item": [
+						{
+							"name": "/kng/knowledgeattachments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeattachments?content=&pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeattachments"
+									],
+									"query": [
+										{
+											"key": "content",
+											"value": ""
+										},
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgeattachment/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeattachment/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeattachment",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgeattachments?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeattachments?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeattachments"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgeattachment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"knowledgeId\": 1,\r\n  \"content\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeattachment",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeattachment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgeattachment/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"knowledgeId\": 1,\r\n  \"content\": \"Server-Test-put\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeattachment/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeattachment",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "knowledgebrowserversion",
+					"item": [
+						{
+							"name": "/kng/knowledgebrowserversions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgebrowserversions?pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgebrowserversions"
+									],
+									"query": [
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgebrowserversion/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgebrowserversion/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgebrowserversion",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgebrowserversions?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgebrowserversions?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgebrowserversions"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgebrowserversion",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"knowledgeId\": 1,\r\n  \"fullSupportBrowserVersionId\": 10,\r\n  \"hackSupportBrowserVersionId\": 0,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgebrowserversion",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgebrowserversion"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgebrowserversion/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"knowledgeId\": 1,\r\n  \"fullSupportBrowserVersionId\": 10,\r\n  \"hackSupportBrowserVersionId\": 0,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test-put\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgebrowserversion/4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgebrowserversion",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "knowledgecategory",
+					"item": [
+						{
+							"name": "/kng/knowledgecategorys",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgecategorys?name=&pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgecategorys"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": ""
+										},
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgecategory/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgecategory/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgecategory",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgecategorys?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgecategorys?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgecategorys"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgecategory",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"parentId\": 1,\r\n  \"level\": 2,\r\n  \"path\": \"1|5\",\r\n  \"code\": \"\",\r\n  \"name\": \"Test\",\r\n  \"priority\": 1,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgecategory",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgecategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgecategory/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"parentId\": 1,\r\n  \"level\": 2,\r\n  \"path\": \"1|5\",\r\n  \"code\": \"\",\r\n  \"name\": \"Test\",\r\n  \"priority\": 1,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgecategory/4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgecategory",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "knowledgeknowledgecategory",
+					"item": [
+						{
+							"name": "/kng/knowledgeknowledgecategorys",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeknowledgecategorys?pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeknowledgecategorys"
+									],
+									"query": [
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgeknowledgecategory/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeknowledgecategory/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeknowledgecategory",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgeknowledgecategorys?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeknowledgecategorys?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeknowledgecategorys"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgeknowledgecategory",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"knowledgeId\": 1,\r\n  \"knowledgeCategoryId\": 2,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeknowledgecategory",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeknowledgecategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgeknowledgecategory/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"knowledgeId\": 1,\r\n  \"knowledgeCategoryId\": 2,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test-put\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgeknowledgecategory/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgeknowledgecategory",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "knowledgelanguage",
+					"item": [
+						{
+							"name": "/kng/knowledgelanguages",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgelanguages?pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgelanguages"
+									],
+									"query": [
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgelanguage/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgelanguage/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgelanguage",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgelanguages?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgelanguages?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgelanguages"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgelanguage",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"languageId\": 2,\r\n  \"knowledgeId\": 1,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgelanguage",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgelanguage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgelanguage/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"languageId\": 2,\r\n  \"knowledgeId\": 1,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test-put\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgelanguage/4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgelanguage",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "knowledgerelation",
+					"item": [
+						{
+							"name": "/kng/knowledgerelations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgerelations?name=&pageindex=0&pagesize=10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgerelations"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": ""
+										},
+										{
+											"key": "pageindex",
+											"value": "0"
+										},
+										{
+											"key": "pagesize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgerelation/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgerelation/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgerelation",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgerelations?ids=1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgerelations?ids=1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgerelations"
+									],
+									"query": [
+										{
+											"key": "ids",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgerelation",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"knowledgeId\": 1,\r\n  \"knowledgeKnowledgeId\": 2,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgerelation",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgerelation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/kng/knowledgerelation/1",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"knowledgeId\": 1,\r\n  \"knowledgeKnowledgeId\": 2,\r\n  \"state\": 1,\r\n  \"description\": \"Server-Test-put\",\r\n  \"ext1\": \"\",\r\n  \"ext2\": \"\",\r\n  \"ext3\": \"\",\r\n  \"ext4\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://localhost:8010/kng/knowledgerelation/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "8010",
+									"path": [
+										"kng",
+										"knowledgerelation",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,167 @@
+@import '~antd/components/style/themes/default.less';
+
+.baseContentOperation {
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  // 操作栏
+  .operationBar {
+    display: flex;
+
+    height: 33px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #e8e8e8;
+
+    // 折叠
+    .baseContentTreeFold {
+      width: 13px;
+      height: 24px;
+      margin-top: 4px;
+      padding: 6px 0;
+      background-color: #d5d5d5;
+
+      cursor: pointer;
+
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+
+      &:hover {
+        background-color: #c5c5c5;
+      }
+
+      :global {
+        .anticon {
+          vertical-align: top;
+        }
+      }
+    }
+
+
+    // 状态
+
+    // 加载
+    .loading {
+      padding-top: 6px;
+      padding-right: 6px;
+    }
+    
+    // 操作按钮
+    .operationButtons {
+      padding-top: 4px;
+
+      li {
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 4px;
+      }
+    }
+
+    // 简单搜索
+    .sampleSearch {
+      padding-top: 4px;
+      padding-right: 17px;
+
+      :global(.ant-input-search) {
+        width: 111px;
+      }
+
+      input {
+        position: relative;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-right: 48px;
+      }
+
+      input:hover {
+        z-index: 1;
+      }
+
+      input:focus {
+        z-index: 1;
+      }
+
+      button {
+        vertical-align: top;
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  // 高级搜索
+  .advancedSearch {
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    overflow-y: hidden;
+
+    display: none;
+    // transform: translate(0, -100%);
+    // transition: transform 3s cubic-bezier(0.77,0.2,0.05,1.0);
+
+    &.advancedSearchShow {
+      display: block;
+      // transform: none;
+    }
+  
+    // 标题
+    .searchTitle {
+      color: #999;
+      line-height: 24px;
+      padding-left: 16px;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+
+      span {
+        padding-left: 4px;
+        color: #999;
+      }
+    }
+    
+    // 按钮
+    .searchButtons {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        vertical-align: top;
+        padding: 12px 6px;
+      }
+    }
+  
+    // 条件
+    .searchList {
+      :global {
+        .ant-form-item {
+          margin-right: 0;
+          margin-bottom: 0;
+          border-bottom: 1px solid #f0f0f0;
+          display: flex;
+
+          .ant-form-item-label {
+            line-height: 24px;
+            text-align: left;
+            padding: 3px 16px 3px 32px;
+            width: 132px;
+          }
+
+          .ant-form-item-control-wrapper {
+            flex: 1;
+
+            .ant-form-item-control {
+              line-height: 24px;
+              background-color: #f8f8f8;
+              border-left: 1px solid #f0f0f0;
+              padding: 3px 40px 3px 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

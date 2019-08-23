@@ -1,0 +1,35 @@
+@import '~antd/components/style/themes/default.less';
+
+.actionsList {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+
+  .actionsItem {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 8px;
+
+    span {
+      color: @primary-color;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .actionsItem:last-child {
+    padding-right: 0;
+  }
+}
+
+.actionsMenuItem {
+  padding: 0;
+
+  a, span {
+    display: block;
+    padding: 3px 12px;
+    margin: 0;
+  }
+}

@@ -1,0 +1,22 @@
+.baseLayout {
+  display: flex;
+  height: 100vh;
+
+  // .baseSider in SiderMenu.less
+
+  .baseContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    // .headerBar in Header.less
+
+    :global {
+      .ant-form {
+        flex: 1;
+        display: flex;
+      }
+    }
+  }
+}

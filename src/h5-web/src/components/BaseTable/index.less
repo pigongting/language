@@ -1,0 +1,95 @@
+.baseContentDataView {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  overflow: hidden;
+
+  .baseContentTable {
+    flex: 1;
+    overflow: hidden;
+
+    :global {
+      table {
+        border-left: 0 !important;
+      }
+
+      .ant-table-wrapper,
+      .ant-spin-nested-loading,
+      .ant-spin-container,
+      .ant-table,
+      .ant-table-content,
+      .ant-table-scroll,
+      .ant-table-body,
+      .ant-table-body-outer {
+        height: 100%;
+      }
+      .ant-table-scroll,
+      .ant-table-fixed-left,
+      .ant-table-fixed-right {
+        padding-top: 28px;
+      }
+      .ant-table-header {
+        margin-top: -28px;
+      }
+      .ant-table-fixed-left,
+      .ant-table-fixed-right {
+        height: ~"calc(100% - 17px)";
+        transition: none;
+        box-shadow: none;
+      }
+      .ant-table-body-inner {
+        overflow-x: hidden;
+        // overflow-y: auto !important;
+      }
+      .ant-table-scroll .ant-table-body {
+        // overflow: auto !important;
+      }
+
+      .ant-table-header {
+        background-color: #f1f1f1;
+        // overflow-y: hidden !important;
+      }
+      .ant-table-thead > tr > th {
+        background: #f1f1f1;
+        border-bottom: 1px solid #d9d9d9;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+      .ant-table-tbody > tr > td {
+        border-right-color: #f0f0f0;
+        border-bottom-color: #f0f0f0;
+      }
+      
+      .ant-table-fixed-left th:last-child,
+      .ant-table-fixed-left td:last-child {
+        border-right: 1px solid #d9d9d9;
+      }
+      .ant-table-fixed-right .ant-table-fixed {
+        border-left-color: #d9d9d9;
+      }
+
+      .ant-table-pagination.ant-pagination {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+
+        margin-top: 0;
+        margin-bottom: 0;
+
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-right: 17px;
+      }
+    }
+  }
+
+  .baseContentFooter {
+    height: 50px;
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0;
+  }
+}

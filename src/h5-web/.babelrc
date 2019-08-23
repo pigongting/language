@@ -1,0 +1,27 @@
+{
+  "presets": [
+    "react-app",
+    ["env", {
+      "targets": {
+        "node": "current"
+      }
+    }]
+  ],
+  "plugins": [
+    ["add-module-exports"],
+    [
+      "transform-decorators-legacy",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "components",
+        "style": true
+      }
+    ]
+  ]
+}

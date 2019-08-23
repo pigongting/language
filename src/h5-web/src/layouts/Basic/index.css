@@ -1,0 +1,19 @@
+.ant-input-clear-icon {
+  color: rgba(0,0,0,0.25);
+  font-size: 12px;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+/* 表格操作 */
+.operateTable {
+  margin-bottom: 16px;
+}
+.operateTable button {
+  margin-right: 8px;
+}
+.operateTable a {
+  margin-right: 8px;
+}

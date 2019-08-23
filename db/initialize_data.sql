@@ -1,15 +1,15 @@
-TRUNCATE TABLE t_browser_type;
-/*!40000 ALTER TABLE `t_browser_type` DISABLE KEYS */;
-INSERT INTO `t_browser_type` (`id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+TRUNCATE TABLE t_brs_browser_type;
+/*!40000 ALTER TABLE `t_brs_browser_type` DISABLE KEYS */;
+INSERT INTO `t_brs_browser_type` (`id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
   (1, '', 'PC', 1, 'PC', '', '', '', '', NOW(), NOW(), 1),
   (2, '', 'Mobile', 1, 'Mobile', '', '', '', '', NOW(), NOW(), 1),
   (3, '', 'Server', 1, 'Server', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_browser_type` ENABLE KEYS */;
+/*!40000 ALTER TABLE `t_brs_browser_type` ENABLE KEYS */;
 
 
-TRUNCATE TABLE t_browser;
-/*!40000 ALTER TABLE `t_browser` DISABLE KEYS */;
-INSERT INTO `t_browser` (`id`, `browser_type_id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+TRUNCATE TABLE t_brs_browser;
+/*!40000 ALTER TABLE `t_brs_browser` DISABLE KEYS */;
+INSERT INTO `t_brs_browser` (`id`, `browser_type_id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
   (1, 1, '', 'Chrome', 1, 'PC-Chrome', '', '', '', '', NOW(), NOW(), 1),
   (2, 1, '', 'Edge', 1, 'PC-Edge', '', '', '', '', NOW(), NOW(), 1),
   (3, 1, '', 'Firefox', 1, 'PC-Firefox', '', '', '', '', NOW(), NOW(), 1),
@@ -23,12 +23,12 @@ INSERT INTO `t_browser` (`id`, `browser_type_id`, `code`, `name`, `state`, `desc
   (11, 2, '', 'Safari on iOS', 1, 'Mobile-Safari on iOS', '', '', '', '', NOW(), NOW(), 1),
   (12, 2, '', 'Samsung Internet', 1, 'Mobile-Samsung Internet', '', '', '', '', NOW(), NOW(), 1),
   (13, 3, '', 'Node.js', 1, 'Server-Node.js', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_browser` ENABLE KEYS */;
+/*!40000 ALTER TABLE `t_brs_browser` ENABLE KEYS */;
 
 
-TRUNCATE TABLE t_browser_version;
-/*!40000 ALTER TABLE `t_browser_version` DISABLE KEYS */;
-INSERT INTO `t_browser_version` (`id`, `browser_id`, `code`, `name`, `version`, `release_date`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+TRUNCATE TABLE t_brs_browser_version;
+/*!40000 ALTER TABLE `t_brs_browser_version` DISABLE KEYS */;
+INSERT INTO `t_brs_browser_version` (`id`, `browser_id`, `code`, `name`, `version`, `release_date`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
   (1, 4, '', '1', 10, '1995-08-01 00:00:00', 1, 'PC-Internet Explorer-1', '', '', '', '', NOW(), NOW(), 1),
   (2, 4, '', '2', 20, '1995-11-01 00:00:00', 1, 'PC-Internet Explorer-2', '', '', '', '', NOW(), NOW(), 1),
   (3, 4, '', '3', 30, '1996-08-01 00:00:00', 1, 'PC-Internet Explorer-3', '', '', '', '', NOW(), NOW(), 1),
@@ -44,21 +44,21 @@ INSERT INTO `t_browser_version` (`id`, `browser_id`, `code`, `name`, `version`, 
   (13, 2, '', '12', 120, '1970-01-01 00:00:00', 1, 'PC-Edge-12', '', '', '', '', NOW(), NOW(), 1),
   (14, 2, '', '14', 140, '1970-01-01 00:00:00', 1, 'PC-Edge-14', '', '', '', '', NOW(), NOW(), 1),
   (15, 1, '', '1', 10, '1970-01-01 00:00:00', 1, 'PC-Chrome-1', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_browser_version` ENABLE KEYS */;
+/*!40000 ALTER TABLE `t_brs_browser_version` ENABLE KEYS */;
 
 
-TRUNCATE TABLE t_language;
-/*!40000 ALTER TABLE `t_language` DISABLE KEYS */;
-INSERT INTO `t_language` (`id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+TRUNCATE TABLE t_lan_language;
+/*!40000 ALTER TABLE `t_lan_language` DISABLE KEYS */;
+INSERT INTO `t_lan_language` (`id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
   (1, '', 'HTML', 1, '', '', '', '', '', NOW(), NOW(), 1),
   (2, '', 'CSS', 1, '', '', '', '', '', NOW(), NOW(), 1),
   (3, '', 'JavaScript', 1, '', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_language` ENABLE KEYS */;
+/*!40000 ALTER TABLE `t_lan_language` ENABLE KEYS */;
 
 
-TRUNCATE TABLE t_knowledge_category;
-/*!40000 ALTER TABLE `t_knowledge_category` DISABLE KEYS */;
-INSERT INTO `t_knowledge_category` (`id`, `parent_id`, `level`, `path`, `code`, `name`, `priority`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+TRUNCATE TABLE t_kng_knowledge_category;
+/*!40000 ALTER TABLE `t_kng_knowledge_category` DISABLE KEYS */;
+INSERT INTO `t_kng_knowledge_category` (`id`, `parent_id`, `level`, `path`, `code`, `name`, `priority`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
   (1, 1, 1, '1', 'ROOT', '根节点', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
 
   (2, 1, 2, '1|2', 'HTML', 'HTML', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
@@ -70,44 +70,35 @@ INSERT INTO `t_knowledge_category` (`id`, `parent_id`, `level`, `path`, `code`, 
   (7, 3, 3, '1|3|7', 'PROPERTY', '属性', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
   (8, 3, 3, '1|3|8', 'UNIT', '单位', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
   (9, 3, 3, '1|3|9', 'COLOR', '颜色', 1, 1, '', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_knowledge_category` ENABLE KEYS */;
+/*!40000 ALTER TABLE `t_kng_knowledge_category` ENABLE KEYS */;
 
 
-TRUNCATE TABLE t_knowledge;
-/*!40000 ALTER TABLE `t_knowledge` DISABLE KEYS */;
-INSERT INTO `t_knowledge` (`id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+TRUNCATE TABLE t_kng_knowledge;
+/*!40000 ALTER TABLE `t_kng_knowledge` DISABLE KEYS */;
+INSERT INTO `t_kng_knowledge` (`id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
   (1, '', 'align-content', 1, '', '', '', '', '', NOW(), NOW(), 1),
   (2, '', 'align-items', 1, '', '', '', '', '', NOW(), NOW(), 1),
   (3, '', 'align-self', 1, '', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_knowledge` ENABLE KEYS */;
+/*!40000 ALTER TABLE `t_kng_knowledge` ENABLE KEYS */;
 
 
-TRUNCATE TABLE t_knowledge_language;
-/*!40000 ALTER TABLE `t_knowledge_language` DISABLE KEYS */;
-INSERT INTO `t_knowledge_language` (`id`, `language_id`, `knowledge_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+TRUNCATE TABLE t_kng_knowledge_language;
+/*!40000 ALTER TABLE `t_kng_knowledge_language` DISABLE KEYS */;
+INSERT INTO `t_kng_knowledge_language` (`id`, `language_id`, `knowledge_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
   (1, 2, 1, 1, 'CSS:align-content', '', '', '', '', NOW(), NOW(), 1),
   (2, 2, 2, 1, 'CSS:align-items', '', '', '', '', NOW(), NOW(), 1),
   (3, 2, 3, 1, 'CSS:align-self', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_knowledge_language` ENABLE KEYS */;
+/*!40000 ALTER TABLE `t_kng_knowledge_language` ENABLE KEYS */;
 
 
-TRUNCATE TABLE t_knowledge_browser_version_full_support;
-/*!40000 ALTER TABLE `t_knowledge_browser_version_full_support` DISABLE KEYS */;
-INSERT INTO `t_knowledge_browser_version_full_support` (`id`, `knowledge_id`, `browser_version_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
-  (1, 1, 10, 1, 'align-content:PC-Internet Explorer-9', '', '', '', '', NOW(), NOW(), 1),
-  (2, 2, 11, 1, 'align-items:PC-Internet Explorer-10', '', '', '', '', NOW(), NOW(), 1),
-  (3, 3, 9, 1, 'align-self:PC-Internet Explorer-8', '', '', '', '', NOW(), NOW(), 1),
-  (4, 1, 15, 1, 'align-content:PC-Chrome-1', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_knowledge_browser_version_full_support` ENABLE KEYS */;
-
-
-TRUNCATE TABLE t_knowledge_browser_version_hack_support;
-/*!40000 ALTER TABLE `t_knowledge_browser_version_hack_support` DISABLE KEYS */;
-INSERT INTO `t_knowledge_browser_version_hack_support` (`id`, `knowledge_id`, `browser_version_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
-  (1, 1, 8, 1, 'align-content:PC-Internet Explorer-7', '', '', '', '', NOW(), NOW(), 1),
-  (2, 2, 8, 1, 'align-items:PC-Internet Explorer-7', '', '', '', '', NOW(), NOW(), 1),
-  (3, 3, 8, 1, 'align-self:PC-Internet Explorer-7', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_knowledge_browser_version_hack_support` ENABLE KEYS */;
+TRUNCATE TABLE t_kng_knowledge_browser_version;
+/*!40000 ALTER TABLE `t_kng_knowledge_browser_version` DISABLE KEYS */;
+INSERT INTO `t_kng_knowledge_browser_version` (`id`, `knowledge_id`, `full_support_browser_version_id`, `hack_support_browser_version_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+  (1, 1, 10, 0, 1, 'align-content:PC-Internet Explorer-9', '', '', '', '', NOW(), NOW(), 1),
+  (2, 2, 11, 0, 1, 'align-items:PC-Internet Explorer-10', '', '', '', '', NOW(), NOW(), 1),
+  (3, 3, 9, 0, 1, 'align-self:PC-Internet Explorer-8', '', '', '', '', NOW(), NOW(), 1),
+  (4, 1, 15, 0, 1, 'align-content:PC-Chrome-1', '', '', '', '', NOW(), NOW(), 1);
+/*!40000 ALTER TABLE `t_kng_knowledge_browser_version` ENABLE KEYS */;
 
 
 

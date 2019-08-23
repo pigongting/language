@@ -1,0 +1,60 @@
+.fieldGroup {
+  :global {
+    .ant-collapse {
+      border-radius: 0;
+      border-width: 0 0 0 0;
+
+      .ant-collapse-item {
+        border-radius: 0;
+        border-bottom-color: #e8e8e8;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .ant-collapse-header {
+          border-radius: 0;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          background-color: #fff;
+          font-weight: bold;
+        }
+        .ant-collapse-content {
+          border-radius: 0;
+
+          .ant-collapse-content-box {
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 0;
+            padding-bottom: 30px;
+          }
+        }
+      }
+    }
+
+    .ant-form-item {
+      margin-right: 0;
+      margin-bottom: 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+
+      .ant-form-item-label {
+        line-height: 24px;
+        text-align: left;
+        padding: 3px 6px 3px 40px;
+        width: 190px;
+      }
+
+      .ant-form-item-control-wrapper {
+        flex: 1;
+
+        .ant-form-item-control {
+          line-height: 24px;
+          background-color: #f8f8f8;
+          border-left: 1px solid #f0f0f0;
+          padding: 3px 40px 3px 6px;
+        }
+      }
+    }
+  }
+}
