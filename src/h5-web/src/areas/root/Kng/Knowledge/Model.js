@@ -41,6 +41,10 @@ const NewState = {
       { '0': 'Hack' },
     ],
   },
+  browser: DEFAULT_TREE,
+  category: DEFAULT_TREE,
+  language: [],
+  knowledge: [],
 };
 // 编辑
 const EditState = {
