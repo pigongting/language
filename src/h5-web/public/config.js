@@ -1,8 +1,8 @@
 window.globalConfig = {
   // ====================================================
   // begin export prefix
-  // EXPORT_PREFIX: 'http://192.168.191.174:8088/k-saas-icbp-portal/', // 测试
-  EXPORT_PREFIX: 'http://192.168.112.240:8088/k-saas-icbp-porta/', // 线上
+  EXPORT_PREFIX: 'http://192.168.191.174:8088/k-saas-icbp-portal/', // 测试
+  // EXPORT_PREFIX: 'http://192.168.112.240:8088/k-saas-icbp-porta/', // 线上
   // end export prefix
   // ====================================================
 

@@ -23,7 +23,7 @@ class EditComponent extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.visible !== nextProps.visible && nextProps.visible === true) {
-      this.rGet();
+      this.rGetAndParent();
     }
   }
 
@@ -53,27 +53,33 @@ class EditComponent extends React.Component {
   };
 
   // 获取单条
-  rGet = (id) => {
-    dispatch({ type: namespace + '/rGet', payload: { id: this.props.parent.editId } });
+  rGetAndParent = () => {
+    dispatch({ type: namespace + '/rGetAndParent', payload: { id: this.props.parent.editId } });
   }
 
   render() {
     const { visible } = this.props;
     const { getFieldDecorator } = this.props.form;
-    const { entity, loading } = this.props.pagedata;
+    const { loading, entity, parentEntity } = this.props.pagedata;
 
     // 字段
     const fieldGroup = [
       {
-        title: '基本信息',
+        title: '父类信息',
         fields: [
           {
-            label: '父Id',
-            render: getFieldDecorator('parentId', {
-              initialValue: entity.parentId,
-              rules: [{ required: true, message: '请输入父Id' }],
-            })(<Input size="small" placeholder="请输入父Id" autoComplete="new-password" />)
+            label: '描述',
+            render: <div>{parentEntity.description}</div>
           },
+          {
+            label: '编码',
+            render: <div>{parentEntity.code}</div>
+          },
+        ],
+      },
+      {
+        title: '基本信息',
+        fields: [
           {
             label: '名称',
             render: getFieldDecorator('name', {

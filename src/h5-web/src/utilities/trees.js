@@ -3,6 +3,7 @@ export function treenodeify(arr, mark='') {
     return {
       origin: item,
       // cascader & tree
+      id: mark + item.id,
       value: mark + item.id,
       label: item.shortName || item.name || item.title,
       isLeaf: item.isLeaf,
@@ -11,6 +12,8 @@ export function treenodeify(arr, mark='') {
       parentId: String(item.parentId) || String(item.categoryId) || '0',
       selectable: item.selectable,
       disableCheckbox: item.disableCheckbox,
+      path: item.path,
+      level: item.level,
     };
   });
 }

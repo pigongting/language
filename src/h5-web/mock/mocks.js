@@ -42,6 +42,8 @@ const proxy = {
   ['PUT /kng/knowledge/:id']: INTERFACE_URL,
   ['POST /kng/knowledge']: INTERFACE_URL,
   ['DELETE /kng/knowledges']: INTERFACE_URL,
+  // 知识点-扩展
+  ['GET /kng/knowledge-ex/:id']: INTERFACE_URL,
 };
 
 module.exports = proxy;

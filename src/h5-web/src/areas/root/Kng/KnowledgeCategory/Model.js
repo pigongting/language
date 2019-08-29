@@ -3,7 +3,7 @@ import { rGetAllKngKnowledgeCategorys } from '@/netapi/kng/KnowledgeCategory/Kno
 import { rPostKngKnowledgeCategory, rPutKngKnowledgeCategory, rGetKngKnowledgeCategory, rDeleteKngKnowledgeCategorys } from '@/netapi/kng/KnowledgeCategory/KnowledgeCategory';
 /* 开源 */
 /* 自研 */
-import { rGetAll, rDelete, rPutState, rPost, rPut, rGet } from '@/utilities/common';
+import { rGetAll, rDeleteCategory, rPutStateCategory, rPost, rPut, rGet, rGetParent, rGetAndParent } from '@/utilities/common';
 /* 命名空间(全局唯一) */
 const namespacePrefix = 'kng/knowledgecategory';
 /* 初始数据 */
@@ -28,10 +28,12 @@ const NewState = {
     ext3: '',
     ext4: '',
   },
+  parentEntity: {},
 };
 // 编辑
 const EditState = {
   entity: {},
+  parentEntity: {},
 };
 
 export default {
@@ -43,8 +45,8 @@ export default {
   
     effects: {
       rGetAll: rGetAll.bind(this, rGetAllKngKnowledgeCategorys),
-      rDelete: rDelete.bind(this, namespacePrefix + 'List', rDeleteKngKnowledgeCategorys),
-      rPutState: rPutState.bind(this, namespacePrefix + 'List', rGetKngKnowledgeCategory, rPutKngKnowledgeCategory),
+      rDelete: rDeleteCategory.bind(this, rDeleteKngKnowledgeCategorys),
+      rPutState: rPutStateCategory.bind(this, rGetKngKnowledgeCategory, rPutKngKnowledgeCategory),
     },
 
     reducers: {
@@ -64,11 +66,18 @@ export default {
     state: NewState,
   
     effects: {
+      rGetParent: rGetParent.bind(this, rGetKngKnowledgeCategory),
       rPost: rPost.bind(this, rPostKngKnowledgeCategory),
     },
 
     reducers: {
       clean(state, action) { return NewState; },
+      save(state, action) {
+        return {
+          ...state,
+          parentEntity: action.payload.parentEntity || state.parentEntity,
+        };
+      }
     },
   },
   Edit: {
@@ -77,7 +86,7 @@ export default {
     state: EditState,
   
     effects: {
-      rGet: rGet.bind(this, rGetKngKnowledgeCategory),
+      rGetAndParent: rGetAndParent.bind(this, rGetKngKnowledgeCategory),
       rPut: rPut.bind(this, rPutKngKnowledgeCategory),
     },
 
@@ -87,6 +96,7 @@ export default {
         return {
           ...state,
           entity: action.payload.entity || state.entity,
+          parentEntity: action.payload.parentEntity || state.parentEntity,
         };
       }
     },

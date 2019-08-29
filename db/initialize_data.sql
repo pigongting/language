@@ -17,7 +17,7 @@ INSERT INTO `t_brs_browser` (`id`, `browser_type_id`, `code`, `name`, `state`, `
   (5, 1, '', 'Opera', 1, 'PC-Opera', '', '', '', '', NOW(), NOW(), 1),
   (6, 1, '', 'Safari', 1, 'PC-Safari', '', '', '', '', NOW(), NOW(), 1),
   (7, 2, '', 'Android Webview', 1, 'Mobile-Android Webview', '', '', '', '', NOW(), NOW(), 1),
-  (8, 2, '', 'iOS Safari ', 1, 'Mobile-iOS Safari', '', '', '', '', NOW(), NOW(), 1),
+  (8, 2, '', 'iOS Safari', 1, 'Mobile-iOS Safari', '', '', '', '', NOW(), NOW(), 1),
   (9, 2, '', 'Samsung Internet', 1, 'Mobile-Samsung Internet', '', '', '', '', NOW(), NOW(), 1),
   (10, 3, '', 'Node.js', 1, 'Server-Node.js', '', '', '', '', NOW(), NOW(), 1);
 /*!40000 ALTER TABLE `t_brs_browser` ENABLE KEYS */;
@@ -302,49 +302,53 @@ INSERT INTO `t_lan_language` (`id`, `code`, `name`, `state`, `description`, `ext
 TRUNCATE TABLE t_kng_knowledge_category;
 /*!40000 ALTER TABLE `t_kng_knowledge_category` DISABLE KEYS */;
 INSERT INTO `t_kng_knowledge_category` (`id`, `parent_id`, `level`, `path`, `code`, `name`, `priority`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
-  (1, 1, 1, '1', 'ROOT', '根节点', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
+  (1, 1, 1, '1', 'ROOT', '根节点', 1, 1, '根节点', '', '', '', '', NOW(), NOW(), 1),
+  
+  (2, 1, 2, '1|2', 'WD1', '维度一', 1, 1, '根节点-维度一', '', '', '', '', NOW(), NOW(), 1),
 
-  (2, 1, 2, '1|2', 'HTML', 'HTML', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
-  (3, 1, 2, '1|3', 'CSS', 'CSS', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
-  (4, 1, 2, '1|4', 'JAVASCRIPT', 'JavaScript', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
-  (5, 1, 2, '1|5', 'WEBAPI', 'Web API', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
+  (3, 2, 3, '1|2|3', 'HTML', 'HTML', 1, 1, '根节点-维度一-HTML', '', '', '', '', NOW(), NOW(), 1),
+  (4, 2, 3, '1|2|4', 'CSS', 'CSS', 1, 1, '根节点-维度一-CSS', '', '', '', '', NOW(), NOW(), 1),
+  (5, 2, 3, '1|2|5', 'JAVASCRIPT', 'JavaScript', 1, 1, '根节点-维度一-JavaScript', '', '', '', '', NOW(), NOW(), 1),
+  (6, 2, 3, '1|2|6', 'WEBAPI', 'Web API', 1, 1, '根节点-维度一-Web API', '', '', '', '', NOW(), NOW(), 1),
 
-  (6, 3, 3, '1|3|6', 'SELECTOR', '选择器', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
-  (7, 3, 3, '1|3|7', 'PROPERTY', '属性', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
-  (8, 3, 3, '1|3|8', 'UNIT', '单位', 1, 1, '', '', '', '', '', NOW(), NOW(), 1),
-  (9, 3, 3, '1|3|9', 'COLOR', '颜色', 1, 1, '', '', '', '', '', NOW(), NOW(), 1);
+  (7, 4, 4, '1|2|4|7', 'SELECTOR', '选择器', 1, 1, '根节点-维度一-CSS-选择器', '', '', '', '', NOW(), NOW(), 1),
+  (8, 4, 4, '1|2|4|8', 'PROPERTY', '属性', 1, 1, '根节点-维度一-CSS-属性', '', '', '', '', NOW(), NOW(), 1),
+  (9, 4, 4, '1|2|4|9', 'UNIT', '单位', 1, 1, '根节点-维度一-CSS-单位', '', '', '', '', NOW(), NOW(), 1),
+  (10, 4, 4, '1|2|4|10', 'COLOR', '颜色', 1, 1, '根节点-维度一-CSS-颜色', '', '', '', '', NOW(), NOW(), 1);
 /*!40000 ALTER TABLE `t_kng_knowledge_category` ENABLE KEYS */;
 
 
 TRUNCATE TABLE t_kng_knowledge;
-/*!40000 ALTER TABLE `t_kng_knowledge` DISABLE KEYS */;
-INSERT INTO `t_kng_knowledge` (`id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
-  (1, '', 'align-content', 1, '', '', '', '', '', NOW(), NOW(), 1),
-  (2, '', 'align-items', 1, '', '', '', '', '', NOW(), NOW(), 1),
-  (3, '', 'align-self', 1, '', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_kng_knowledge` ENABLE KEYS */;
+-- /*!40000 ALTER TABLE `t_kng_knowledge` DISABLE KEYS */;
+-- INSERT INTO `t_kng_knowledge` (`id`, `code`, `name`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+--   (1, '', 'align-content', 1, '', '', '', '', '', NOW(), NOW(), 1),
+--   (2, '', 'align-items', 1, '', '', '', '', '', NOW(), NOW(), 1),
+--   (3, '', 'align-self', 1, '', '', '', '', '', NOW(), NOW(), 1);
+-- /*!40000 ALTER TABLE `t_kng_knowledge` ENABLE KEYS */;
 
 
 TRUNCATE TABLE t_kng_knowledge_language;
-/*!40000 ALTER TABLE `t_kng_knowledge_language` DISABLE KEYS */;
-INSERT INTO `t_kng_knowledge_language` (`id`, `language_id`, `knowledge_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
-  (1, 2, 1, 1, 'CSS:align-content', '', '', '', '', NOW(), NOW(), 1),
-  (2, 2, 2, 1, 'CSS:align-items', '', '', '', '', NOW(), NOW(), 1),
-  (3, 2, 3, 1, 'CSS:align-self', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_kng_knowledge_language` ENABLE KEYS */;
+-- /*!40000 ALTER TABLE `t_kng_knowledge_language` DISABLE KEYS */;
+-- INSERT INTO `t_kng_knowledge_language` (`id`, `language_id`, `knowledge_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+--   (1, 2, 1, 1, 'CSS:align-content', '', '', '', '', NOW(), NOW(), 1),
+--   (2, 2, 2, 1, 'CSS:align-items', '', '', '', '', NOW(), NOW(), 1),
+--   (3, 2, 3, 1, 'CSS:align-self', '', '', '', '', NOW(), NOW(), 1);
+-- /*!40000 ALTER TABLE `t_kng_knowledge_language` ENABLE KEYS */;
 
 
 TRUNCATE TABLE t_kng_knowledge_browser_version;
-/*!40000 ALTER TABLE `t_kng_knowledge_browser_version` DISABLE KEYS */;
-INSERT INTO `t_kng_knowledge_browser_version` (`id`, `knowledge_id`, `full_support_browser_version_id`, `hack_support_browser_version_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
-  (1, 1, 10, 0, 1, 'align-content:PC-Internet Explorer-9', '', '', '', '', NOW(), NOW(), 1),
-  (2, 2, 11, 0, 1, 'align-items:PC-Internet Explorer-10', '', '', '', '', NOW(), NOW(), 1),
-  (3, 3, 9, 0, 1, 'align-self:PC-Internet Explorer-8', '', '', '', '', NOW(), NOW(), 1),
-  (4, 1, 15, 0, 1, 'align-content:PC-Chrome-1', '', '', '', '', NOW(), NOW(), 1);
-/*!40000 ALTER TABLE `t_kng_knowledge_browser_version` ENABLE KEYS */;
+-- /*!40000 ALTER TABLE `t_kng_knowledge_browser_version` DISABLE KEYS */;
+-- INSERT INTO `t_kng_knowledge_browser_version` (`id`, `knowledge_id`, `full_support_browser_version_id`, `hack_support_browser_version_id`, `state`, `description`, `ext_1`, `ext_2`, `ext_3`, `ext_4`, `meta_created`, `meta_updated`, `meta_logic_flag`) VALUES
+--   (1, 1, 10, 0, 1, 'align-content:PC-Internet Explorer-9', '', '', '', '', NOW(), NOW(), 1),
+--   (2, 2, 11, 0, 1, 'align-items:PC-Internet Explorer-10', '', '', '', '', NOW(), NOW(), 1),
+--   (3, 3, 9, 0, 1, 'align-self:PC-Internet Explorer-8', '', '', '', '', NOW(), NOW(), 1),
+--   (4, 1, 15, 0, 1, 'align-content:PC-Chrome-1', '', '', '', '', NOW(), NOW(), 1);
+-- /*!40000 ALTER TABLE `t_kng_knowledge_browser_version` ENABLE KEYS */;
 
 
+TRUNCATE TABLE t_kng_knowledge_knowledge_category;
 
+TRUNCATE TABLE t_kng_knowledge_relation;
 
 
 

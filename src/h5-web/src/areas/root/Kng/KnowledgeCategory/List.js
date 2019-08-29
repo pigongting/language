@@ -61,7 +61,8 @@ class ListComponent extends React.Component {
   }
 
   // 新建
-  handleNew = () => {
+  handleNew = (id) => {
+    this.newId = id;
     this.setState({ visibleNew: true });
   }
 
@@ -73,13 +74,13 @@ class ListComponent extends React.Component {
 
   // 启用/禁用
   handleState = (id, index) => {
-    dispatch({ type: namespace + '/rPutState', payload: { id }, index });
+    dispatch({ type: namespace + '/rPutState', payload: { id }, callback: this.reload });
   }
 
   // 删除
   handleDelete = (id, index) => {
     handleDeleteTable(() => {
-      dispatch({ type: namespace + '/rDelete', payload: { ids: id }, index });
+      dispatch({ type: namespace + '/rDelete', payload: { ids: id }, callback: this.reload });
     });
   }
 
@@ -89,9 +90,7 @@ class ListComponent extends React.Component {
     const { visibleNew } = this.state;
 
     // 操作项
-    const operations = [
-      <Button size="small" type="primary" onClick={this.handleNew}>新建</Button>,
-    ];
+    const operations = [];
 
     // 状态
     const states = getFieldDecorator('state', {
@@ -116,82 +115,59 @@ class ListComponent extends React.Component {
     // 字段
     const columns = [
       {
-        title: 'ID',
-        dataIndex: 'id',
-        align: 'center',
-        fixed: 'left',
-        width: 50,
-      },
-      {
         title: '名称',
-        dataIndex: 'name',
-        width: 197,
+        dataIndex: '',
+        render: (text, record, index) => record.origin.name,
       },
       {
         title: '编码',
-        dataIndex: 'code',
-        width: 197,
-      },
-      {
-        title: '父ID',
-        dataIndex: 'parentId',
-        width: 197,
-      },
-      {
-        title: '层级',
-        dataIndex: 'level',
-        width: 197,
-      },
-      {
-        title: '路径',
-        dataIndex: 'path',
+        render: (text, record, index) => record.origin.code,
         width: 197,
       },
       {
         title: '优先级',
-        dataIndex: 'priority',
-        width: 197,
+        align: 'center',
+        render: (text, record, index) => record.origin.priority,
+        width: 53,
       },
       {
         title: '描述',
-        dataIndex: 'description',
+        render: (text, record, index) => record.origin.description,
         width: 197,
       },
       {
         title: '状态',
-        dataIndex: 'state',
-        render: (text, record, index) => Enums.Common.enableState[text],
+        render: (text, record, index) => Enums.Common.enableState[record.origin.state],
         width: 41,
-      },
-      {
-        title: '',
-        dataIndex: '',
       },
       {
         title: '操作',
         dataIndex: '',
         fixed: 'right',
-        width: 100,
+        width: 124,
         render: (text, record, index) => <BaseTableActions
           actions={[
-            <span onClick={this.handleEdit.bind(this, record.id)}>编辑</span>,
-            <span onClick={this.handleState.bind(this, record.id, index)}>{record.state === 1 ? '禁用' : '启用'}</span>,
-            <span onClick={this.handleDelete.bind(this, record.id, index)}>删除</span>,
+            <span onClick={this.handleNew.bind(this, record.origin.id)}>新建子类</span>,
+            <span onClick={this.handleEdit.bind(this, record.origin.id)}>编辑</span>,
+            <span onClick={this.handleState.bind(this, record.origin.id)}>{record.origin.state === 1 ? '禁用' : '启用'}</span>,
+            <span onClick={this.handleDelete.bind(this, record.origin.id)}>删除</span>,
           ]}
         />,
       },
     ];
 
     return (
-      <Form onSubmit={handleSearchTable.bind(this)} colon={false}>
-        <BaseTable
-          operation={{ states, filter, filters, operations }}
-          table={{ columns: columns, pagination, loading: loading.rGetAll }}
-          parent={this}
-        />
+      <Fragment>
+        <Form onSubmit={handleSearchTable.bind(this)} colon={false}>
+          <BaseTable
+            operation={{ states, filter, filters, operations }}
+            table={{ columns: columns, pagination, loading: loading.rGetAll }}
+            parent={this}
+          />
+        </Form>
         <New visible={this.state.visibleNew} parent={this} />
         <Edit visible={this.state.visibleEdit} parent={this} />
-      </Form>
+      </Fragment>
     );
   }
 }

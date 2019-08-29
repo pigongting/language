@@ -113,6 +113,17 @@ export function* rDelete(namespace, deleteMethod, { payload, index }, { call, pu
 }
 
 /**
+ * 删除多条-类别
+ */
+export function* rDeleteCategory(deleteMethod, { payload, callback }, { call, put, select }) {
+  const response = yield call(deleteMethod, payload);
+  if (response === undefined) { return; }
+
+  // 回调
+  callback && callback();
+}
+
+/**
  * 启用禁用
  */
 export function* rPutState(namespace, getMethod, putMethod, { payload, index }, { call, put, select }) {
@@ -139,6 +150,26 @@ export function* rPutState(namespace, getMethod, putMethod, { payload, index }, 
 }
 
 /**
+ * 启用禁用-类别
+ */
+export function* rPutStateCategory(getMethod, putMethod, { payload, callback }, { call, put, select }) {
+  // 获取原始数据
+  const response = yield call(getMethod, payload);
+  if (response === undefined) { return; }
+
+  // 修改状态
+  const stateOld = response.state;
+  const stateNew = (stateOld === 1) ? 2 : 1;
+
+  // 修改远程状态
+  const responsePut = yield call(putMethod, Object.assign(response, { state: stateNew } ));
+  if (responsePut === undefined) { return; }
+
+  // 回调
+  callback && callback();
+}
+
+/**
  * 新建单条
  */
 export function* rPost(postMethod, { payload, callback }, { call, put, select }) {
@@ -155,6 +186,29 @@ export function* rGet(getMethod, { payload }, { call, put, select }) {
   if (response === undefined) { return; }
 
   yield put({ type: 'save', payload: { entity: response }});
+}
+
+/**
+ * 获取单条-父级
+ */
+export function* rGetParent(getMethod, { payload }, { call, put, select }) {
+  const response = yield call(getMethod, payload);
+  if (response === undefined) { return; }
+
+  yield put({ type: 'save', payload: { parentEntity: response }});
+}
+
+/**
+ * 获取单条和父类
+ */
+export function* rGetAndParent(getMethod, { payload }, { call, put, select }) {
+  const response = yield call(getMethod, payload);
+  if (response === undefined) { return; }
+
+  const responseParent = yield call(getMethod, { id: response.parentId });
+  if (responseParent === undefined) { return; }
+
+  yield put({ type: 'save', payload: { entity: response, parentEntity: responseParent }});
 }
 
 /**

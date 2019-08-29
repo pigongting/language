@@ -552,20 +552,9 @@ export const search2form = {
       };
     });
   },
-  cascader: (path, needRoot) => {
-    if (testPropTypes(path, 'string') === false) { return; }
-    
-    const pathArr = path.split('|');
-
-    if (needRoot !== true) {
-      pathArr.splice(1);
-    }
-
-    return pathArr;
-  },
-  cascaderChange: (mapping, { cid, id, mark }) => {
+  cascader: (mapping, { cid, id, mark }) => {
     if (!!cid === false && !!id === false) { return; }
-    const key = cid || mark + id;
+    const key = cid || (mark ? mark + id : id);
 
     const entity = mapping[key];
     if (entity === undefined || entity.path === undefined) { return; }
@@ -756,6 +745,22 @@ export const toObject = {
       result[item[key]] = item;
       return result;
     }, {});
+  }
+};
+
+/**
+ * 转换为数字
+ * string
+ */
+export const toNumber = {
+  string: (string) => {
+    const number = Number(string.replace(/[^0-9]/ig, ''));
+
+    if (isNaN(number)) {
+      return 0;
+    }
+
+    return number;
   }
 };
 

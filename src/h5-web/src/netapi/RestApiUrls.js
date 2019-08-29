@@ -21,4 +21,5 @@ export default {
   // 知识点
   URL_KNG_KNOWLEDGES: '/kng/knowledges',
   URL_KNG_KNOWLEDGE: '/kng/knowledge',
+  URL_KNG_KNOWLEDGE_EX: '/kng/knowledge-ex',
 };

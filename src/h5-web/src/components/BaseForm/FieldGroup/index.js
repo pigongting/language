@@ -6,6 +6,10 @@ import styles from './index.less';
 
 class FieldGroup extends React.PureComponent {
 
+  clickHeader = (e) => {
+    e.stopPropagation();
+  }
+
   render() {
     const { fieldGroup } = this.props;
 
@@ -14,7 +18,7 @@ class FieldGroup extends React.PureComponent {
         <Collapse defaultActiveKey={Object.keys(fieldGroup)}>
           {fieldGroup.map((item, index) => {
             return (
-              <Collapse.Panel header={item.title} key={index}>
+              <Collapse.Panel header={<div className={styles.panelHeader} onClick={this.clickHeader}>{item.title}</div>} key={index}>
                 {item.fields.map((field, i) => <Form.Item key={i} label={field.label}>{field.render}</Form.Item>)}
               </Collapse.Panel>
             );

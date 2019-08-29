@@ -15,6 +15,11 @@ const defaultParams = {
   ext2: '',
   ext3: '',
   ext4: '',
+  // 关联
+  languageIds: [],
+  categoryIds: [],
+  knowledgeIds: [],
+  knowledgeBrowserVersion: [],
 };
 
 // 新建单条

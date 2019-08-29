@@ -10,7 +10,7 @@ import { URL_KNG_KNOWLEDGECATEGORYS } from '@/netapi/RestApiUrls';
 const defaultParams = {
   name: '',
   pageindex: 1,
-  pagesize: 20,
+  pagesize: 1000,
 };
 
 export async function rGetAllKngKnowledgeCategorys(params) {
@@ -20,6 +20,8 @@ export async function rGetAllKngKnowledgeCategorys(params) {
     notification.error({ message: '操作失败', description: response.message });
     return;
   }
+
+  response.data.entities = tree(treenodeify(response.data.entities)).tree;
 
   return response.data;
 }

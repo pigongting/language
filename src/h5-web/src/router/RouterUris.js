@@ -6,7 +6,7 @@ export const tempMenus = [
     level: 2,
     path: '1|2',
     name: '浏览器',
-    icon: 'ie',
+    icon: 'global',
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ export const tempMenus = [
     level: 2,
     path: '1|6',
     name: '语言',
-    icon: 'html5',
+    icon: 'heat-map',
   },
   {
     id: 7,
