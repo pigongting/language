@@ -42,7 +42,7 @@ class FormBrowserSupport extends React.Component {
       return {
         title: item.label,
         key: item.value,
-        children: item.children.map(bitem => {
+        children: item.children ? item.children.map(bitem => {
           return {
             title: bitem.label,
             dataIndex: String(toNumber.string(bitem.value)),
@@ -57,6 +57,7 @@ class FormBrowserSupport extends React.Component {
                     onChange={this.handleChange.bind(this, index, String(toNumber.string(bitem.value)))}
                     dropdownMatchSelectWidth={false}
                     style={{ minWidth: '52px' }}
+                    allowClear
                   >
                     {bitem.children.map((bvitem, index) => <Select.Option key={index} value={Number(bvitem.value)}>{bvitem.label}</Select.Option>)}
                   </Select>
@@ -64,7 +65,7 @@ class FormBrowserSupport extends React.Component {
               }
             }
           };
-        })
+        }) : null,
       };
     });
   }

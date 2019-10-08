@@ -153,14 +153,13 @@ class NewComponent extends React.Component {
             render: getFieldDecorator('name', {
               initialValue: entity.name,
               rules: [{ required: true, message: '请输入名称' }],
-            })(<Input size="small" placeholder="请输入名称" autoComplete="new-password" />)
+            })(<Input size="small" placeholder="请输入名称" autoComplete="off" />)
           },
           {
             label: '编码',
             render: getFieldDecorator('code', {
               initialValue: entity.code,
-              rules: [{ required: true, message: '请输入名称' }],
-            })(<Input size="small" placeholder="请输入编码" autoComplete="new-password" />)
+            })(<Input size="small" placeholder="请输入编码" autoComplete="off" />)
           },
           {
             label: '状态',
@@ -228,13 +227,7 @@ class NewComponent extends React.Component {
             label: '描述',
             render: getFieldDecorator('description', {
               initialValue: entity.description,
-            })(<Input.TextArea rows={4} placeholder="请输入描述" autoComplete="new-password" />)
-          },
-          {
-            label: '知识',
-            render: getFieldDecorator('name', {
-              initialValue: entity.name,
-            })(<Input size="small" placeholder="请输入名称" autoComplete="new-password" />)
+            })(<Input.TextArea rows={16} placeholder="请输入描述" autoComplete="off" />)
           },
         ],
       },

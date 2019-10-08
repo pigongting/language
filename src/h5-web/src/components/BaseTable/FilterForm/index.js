@@ -61,10 +61,10 @@ class FilterForm extends React.PureComponent {
           <ul className={styles.operationButtons}>{this.generateOperations(operations)}</ul>
           <div className={styles.sampleSearch}>
             {filter}
-            <Button size="small" onClick={this.handleToggleAdvancedMode}>高级搜索</Button>
+            {filters && <Button size="small" onClick={this.handleToggleAdvancedMode}>高级搜索</Button>}
           </div>
         </div>
-        <div className={classNames(styles.advancedSearch, advancedMode && styles.advancedSearchShow)}>
+        {filters && <div className={classNames(styles.advancedSearch, advancedMode && styles.advancedSearchShow)}>
           <div className={styles.searchTitle}><Icon type="search" /><span>高级搜索</span></div>
           <div className={styles.searchList}><Row>{this.generateFilters(filters)}</Row></div>
           <ul className={styles.searchButtons}>
@@ -72,7 +72,7 @@ class FilterForm extends React.PureComponent {
             <li><Button size="small" onClick={onReset}>重置</Button></li>
             <li><Button size="small" onClick={this.handleToggleAdvancedMode}>收起</Button></li>
           </ul>
-        </div>
+        </div>}
       </div>
     );
   }

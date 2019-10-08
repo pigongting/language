@@ -1,7 +1,7 @@
 export default {
   // ====================================================
   // begin interface
-  INTERFACE_URL: 'https://192.168.42.145:8010',
+  INTERFACE_URL: 'https://localhost:8010',
   // end interface
   // ====================================================
 }

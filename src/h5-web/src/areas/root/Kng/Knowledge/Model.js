@@ -9,6 +9,7 @@ import { rGetAllBrsBrowsers } from '@/netapi/brs/Browser/Browsers';
 import { rGetAllBrsBrowserVersions } from '@/netapi/brs/BrowserVersion/BrowserVersions';
 /* 开源 */
 import { tree, treenodeify } from '@/utilities/trees';
+import clone from 'clone';
 /* 自研 */
 import { DEFAULT_TREE } from '@/Constant';
 import { rGetAll, rDelete, rPutState, rPost, rPut, rGet } from '@/utilities/common';
@@ -24,17 +25,17 @@ const ListState = {
 // 新建
 const NewState = {
   entity: {
-    code: 'T',
-    name: 'Test',
+    code: '',
+    name: '',
     state: 1,
-    description: 'Server-Test',
+    description: '',
     ext1: '',
     ext2: '',
     ext3: '',
     ext4: '',
     // 关联
-    languageIds: [],
-    categoryIds: [],
+    languageIds: [2],
+    categoryIds: [8],
     knowledgeIds: [],
     knowledgeBrowserVersion: [
       { '0': 'Full' },
@@ -89,7 +90,7 @@ export default {
   New: {
     namespace: `${namespacePrefix}New`,
   
-    state: NewState,
+    state: clone(NewState),
   
     effects: {
       rPost: rPost.bind(this, rPostKngKnowledge),
@@ -100,7 +101,15 @@ export default {
     },
 
     reducers: {
-      clean(state, action) { return NewState; },
+      clean(state, action) {
+        return {
+          ...NewState,
+          entity: {
+            ...NewState.entity,
+            knowledgeBrowserVersion: [{ '0': 'Full' }, { '0': 'Hack' }]
+          }
+        };
+      },
       save(state, action) {
         return {
           ...state,
@@ -115,7 +124,7 @@ export default {
   Edit: {
     namespace: `${namespacePrefix}Edit`,
   
-    state: EditState,
+    state: clone(EditState),
   
     effects: {
       rGetEx: rGet.bind(this, rGetExKngKnowledge),

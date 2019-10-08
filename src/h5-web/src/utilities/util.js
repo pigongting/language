@@ -1,8 +1,9 @@
 /* 开源-工具 */
+import moment from 'moment';
 import queryString from 'query-string';
 /* 自研-工具 */
 import { history } from '@/store';
-import { LOCALSTORAGEKEY_AUTHORIZATION, SSO_TOKEN, SEC_ORG_FRAME } from '@/Constant';
+import { LOCALSTORAGEKEY_AUTHORIZATION, SSO_TOKEN, SEC_ORG_FRAME, DEFAULT_EMPTY_TIME } from '@/Constant';
 import { tree, treenodeify } from '@/utilities/trees';
 
 // ============================================================
@@ -346,7 +347,7 @@ export const form2search = {
 
     delete obj[field];
   },
-  upload: (obj, field) => {
+  upload: (obj, field, length) => {
     if (obj === undefined || obj[field] === undefined) { return; }
 
     // 参数类型检查
@@ -360,12 +361,11 @@ export const form2search = {
     const fileList = obj[field].filter(item => item.url);
 
     // 格式转换
-    obj[field] = fileList.map(item => {
-      return {
-        id: obj.id || 0,
-        url: item.url,
-      };
-    });
+    if (length) {
+      obj[field] = fileList.splice(0, length).map(item => item.url).join(',');
+    } else {
+      obj[field] = fileList.map(item => { return { id: obj.id || 0, url: item.url } });
+    }
   },
   cascader: (obj, field, mark) => {
     if (obj === undefined || obj[field] === undefined) { return; }
@@ -424,10 +424,15 @@ export const form2search = {
     // 删除虚拟字段
     delete obj[field];
   },
-  ids: (obj, field) => {
+  ids: (obj, field, replaceField) => {
     if (obj === undefined || obj[field] === undefined) { return; }
 
-    obj[field] = obj[field].join(',');
+    if (replaceField) {
+      obj[replaceField] = obj[field].join(',');
+      delete obj[field];
+    } else {
+      obj[field] = obj[field].join(',');
+    }
   },
   numberString: (obj, field) => {
     if (obj === undefined) { return; }
@@ -763,6 +768,18 @@ export const toNumber = {
     return number;
   }
 };
+
+/**
+ * 将数组按照指定长度拆分
+ */
+export function sliceArrayByLength(arr, length) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i += length) {
+    newArr.push(arr.slice(i, i + length));
+  }
+  return newArr;
+}
+
 
 // ============================================================
 // 业务强相关

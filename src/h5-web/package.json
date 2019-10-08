@@ -169,6 +169,7 @@
     "webpack-api-mocker": "^1.5.3"
   },
   "theme": {
+    "@font-family": "-apple-system,consolas,'Microsoft YaHei'",
     "@text-color": "#262626",
     "@heading-color": "#000000",
     "@font-size-base": "12px",

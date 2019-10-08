@@ -88,6 +88,12 @@ class ListComponent extends React.Component {
     });
   }
 
+  // 危险文本
+  createMarkup = (text) => {
+    const html = text.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\s/g, '&nbsp;');
+    return {__html: html};
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     const { loading, keep, pagination, typeSearchTree } = this.props.pagedata;
@@ -132,14 +138,15 @@ class ListComponent extends React.Component {
         width: 197,
       },
       {
-        title: '代码',
+        title: '编码',
         dataIndex: 'code',
         width: 197,
       },
       {
         title: '描述',
         dataIndex: 'description',
-        width: 197,
+        render: (text, record, index) => <div dangerouslySetInnerHTML={this.createMarkup(text)} />,
+        width: (50 * 12) + 17,
       },
       {
         title: '状态',

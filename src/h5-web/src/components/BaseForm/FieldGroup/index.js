@@ -19,7 +19,10 @@ class FieldGroup extends React.PureComponent {
           {fieldGroup.map((item, index) => {
             return (
               <Collapse.Panel header={<div className={styles.panelHeader} onClick={this.clickHeader}>{item.title}</div>} key={index}>
-                {item.fields.map((field, i) => <Form.Item key={i} label={field.label}>{field.render}</Form.Item>)}
+                {item.fields.map((field, i) => {
+                  if (field.visible === false) { return null }
+                  return (<Form.Item key={i} label={field.label} extra={field.extra}>{field.render}</Form.Item>);
+                })}
               </Collapse.Panel>
             );
           })}

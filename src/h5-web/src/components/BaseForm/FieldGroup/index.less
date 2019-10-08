@@ -44,6 +44,19 @@
         text-align: left;
         padding: 3px 6px 3px 40px;
         width: 190px;
+
+        .ant-form-item-required::before {
+          display: none;
+        }
+        .ant-form-item-required::after {
+          display: inline-block;
+          margin-left: 4px;
+          color: #f5222d;
+          font-size: 12px;
+          font-family: SimSun, sans-serif;
+          line-height: 1;
+          content: '*';
+        }
       }
 
       .ant-form-item-control-wrapper {

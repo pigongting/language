@@ -16,7 +16,7 @@ export async function rGetExKngKnowledge(params) {
 
   // 附加支持类型
   response.data.knowledgeBrowserVersion.map((item, index) => {
-    if (index) {
+    if (index === 0) {
       item[0] = "Full";
     } else {
       item[0] = "Hack";
