@@ -72,28 +72,28 @@ class EditComponent extends React.Component {
             render: getFieldDecorator('name', {
               initialValue: entity.name,
               rules: [{ required: true, message: '请输入名称' }],
-            })(<Input size="small" placeholder="请输入名称" autoComplete="new-password" />)
+            })(<Input size="small" placeholder="请输入名称" autoComplete="off" />)
           },
           {
             label: '编码',
             render: getFieldDecorator('code', {
               initialValue: entity.code,
               rules: [{ required: true, message: '请输入编码' }],
-            })(<Input size="small" placeholder="请输入编码" autoComplete="new-password" />)
+            })(<Input size="small" placeholder="请输入编码" autoComplete="off" />)
           },
           {
             label: '版本',
             render: getFieldDecorator('version', {
               initialValue: entity.version,
               rules: [{ required: true, message: '请输入版本' }],
-            })(<Input size="small" placeholder="请输入版本" autoComplete="new-password" />)
+            })(<Input size="small" placeholder="请输入版本" autoComplete="off" />)
           },
           {
             label: '发布日期',
             render: getFieldDecorator('releaseDate', {
               initialValue: entity.releaseDate,
               rules: [{ required: true, message: '请输入发布日期' }],
-            })(<Input size="small" placeholder="请输入发布日期" autoComplete="new-password" />)
+            })(<Input size="small" placeholder="请输入发布日期" autoComplete="off" />)
           },
           {
             label: '状态',
@@ -117,7 +117,7 @@ class EditComponent extends React.Component {
             label: '描述',
             render: getFieldDecorator('description', {
               initialValue: entity.description,
-            })(<Input.TextArea rows={4} placeholder="请输入描述" autoComplete="new-password" />)
+            })(<Input.TextArea rows={4} placeholder="请输入描述" autoComplete="off" />)
           },
         ],
       }

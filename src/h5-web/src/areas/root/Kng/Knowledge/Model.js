@@ -34,11 +34,11 @@ const NewState = {
     ext3: '',
     ext4: '',
     // 关联
-    languageIds: [2],
-    categoryIds: [8],
+    languageIds: [1],
+    categoryIds: [72],
     knowledgeIds: [],
     knowledgeBrowserVersion: [
-      { '0': 'Full' },
+      { '0': 'Full', '1': 2, '2': 84, '3': 94, '4': 172, '5': 187, '6': 268, '7': 296, '8': 356, '9': 415, '10': 480, '11': 523, '12': 557, '16': 724 },
       { '0': 'Hack' },
     ],
   },

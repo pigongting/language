@@ -236,6 +236,10 @@ CREATE TABLE `t_brs_browser_version` (
   `version` INT(11) NOT NULL DEFAULT 0 COMMENT '版本代号',
 
   `release_date` DATETIME NOT NULL COMMENT '发布日期',
+  `release_notes` VARCHAR(255) NOT NULL COMMENT '发布日志',
+  `status` VARCHAR(255) NOT NULL COMMENT '状态',
+  `engine` VARCHAR(255) NOT NULL COMMENT '引擎',
+  `engine_version` VARCHAR(255) NOT NULL COMMENT '引擎版本',
 
   `state` INT(11) NOT NULL DEFAULT 0 COMMENT '状态 0-全部, 1-启用, 2-禁用',
   `description` VARCHAR(255) NOT NULL COMMENT '描述',

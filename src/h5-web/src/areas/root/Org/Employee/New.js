@@ -132,7 +132,7 @@ class NewComponent extends React.Component {
             {getFieldDecorator('trueName', {
               initialValue: entity.trueName,
               rules: [{ required: true, message: '请选择所属部门' }],
-            })(<Input size="small" placeholder="请输入真实姓名" autoComplete="new-password" />)}
+            })(<Input size="small" placeholder="请输入真实姓名" autoComplete="off" />)}
           </Form.Item>,
           <Form.Item label="岗位">
             {getFieldDecorator('positionId', {
@@ -154,19 +154,19 @@ class NewComponent extends React.Component {
             {getFieldDecorator('account', {
               initialValue: entity.account,
               rules: [{ required: true, message: '请选择所属部门' }],
-            })(<Input size="small" placeholder="请输入账号" autoComplete="new-password" />)}
+            })(<Input size="small" placeholder="请输入账号" autoComplete="off" />)}
           </Form.Item>,
           <Form.Item label="密码">
             {getFieldDecorator('password', {
               initialValue: entity.password,
               rules: [{ required: true, message: '请选择所属部门' }],
-            })(<Input size="small" type="password" placeholder="请输入密码" autoComplete="new-password" />)}
+            })(<Input size="small" type="password" placeholder="请输入密码" autoComplete="off" />)}
           </Form.Item>,
           <Form.Item label="手机号">
             {getFieldDecorator('phone', {
               initialValue: entity.phone,
               rules: [{ required: true, message: '请选择所属部门' }],
-            })(<Input size="small" placeholder="请输入手机号" autoComplete="new-password" />)}
+            })(<Input size="small" placeholder="请输入手机号" autoComplete="off" />)}
           </Form.Item>,
           <Form.Item label="状态">
             {getFieldDecorator('state', {
@@ -200,7 +200,7 @@ class NewComponent extends React.Component {
           <Form.Item label="昵称">
             {getFieldDecorator('nickName', {
               initialValue: entity.nickName,
-            })(<Input size="small" placeholder="请输入昵称" autoComplete="new-password" />)}
+            })(<Input size="small" placeholder="请输入昵称" autoComplete="off" />)}
           </Form.Item>,
           <Form.Item label="证件类型">
             {getFieldDecorator('certificateType', {
@@ -220,17 +220,17 @@ class NewComponent extends React.Component {
           <Form.Item label="证件号码">
             {getFieldDecorator('certificateNo', {
               initialValue: entity.certificateNo,
-            })(<Input size="small" placeholder="请输入证件号码" autoComplete="new-password" />)}
+            })(<Input size="small" placeholder="请输入证件号码" autoComplete="off" />)}
           </Form.Item>,
           <Form.Item label="安全邮箱">
             {getFieldDecorator('secEmail', {
               initialValue: entity.secEmail,
-            })(<Input size="small" placeholder="请输入安全邮箱" autoComplete="new-password" />)}
+            })(<Input size="small" placeholder="请输入安全邮箱" autoComplete="off" />)}
           </Form.Item>,
           <Form.Item label="描述">
             {getFieldDecorator('description', {
               initialValue: entity.description,
-            })(<Input size="small" placeholder="请输入描述" autoComplete="new-password" />)}
+            })(<Input size="small" placeholder="请输入描述" autoComplete="off" />)}
           </Form.Item>,
         ],
       }

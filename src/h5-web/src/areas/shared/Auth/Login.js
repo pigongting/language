@@ -113,7 +113,7 @@ class SharedUserLogin extends Component {
                     prefix={<Icon type="lock" className={styles.prefixIcon} />}
                     placeholder="请输入密码"
                     onChange={this.onChange}
-                    autoComplete="new-password"
+                    autoComplete="off"
                   />)}
                 </FormItem>
               </TabPane>

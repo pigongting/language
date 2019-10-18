@@ -115,7 +115,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "set PORT=5001 && set HTTPS=true&& node --max_old_space_size=4096 scripts/start.js",
+    "start": "set PORT=7001 && set HTTPS=true&& node --max_old_space_size=4096 scripts/start.js",
     "build": "node --max_old_space_size=6144 scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },

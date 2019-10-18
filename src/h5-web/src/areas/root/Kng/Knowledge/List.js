@@ -67,7 +67,6 @@ class ListComponent extends React.Component {
   rGetTypeSearchTree = (params, reset) => {
     dispatch({
       type: namespace + '/rGetTypeSearchTree',
-      payload: this.handleReloadParams(params, reset),
     });
   }
 
@@ -112,14 +111,14 @@ class ListComponent extends React.Component {
     // 过滤项
     const filter = getFieldDecorator('name', {
       initialValue: keep.name,
-    })(<Input.Search size="small" placeholder="搜索名称" autoComplete="new-password" allowClear onSearch={handleSearchTable.bind(this)} />);
+    })(<Input.Search size="small" placeholder="搜索名称" autoComplete="off" allowClear onSearch={handleSearchTable.bind(this)} />);
 
     // 过滤项-高级
     const filters = [
       <Form.Item label="名称">
         {getFieldDecorator('name', {
           initialValue: keep.name,
-        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="new-password" />)}
+        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="off" />)}
       </Form.Item>,
     ];
 

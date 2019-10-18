@@ -83,14 +83,14 @@ class WorkplaceComponent extends React.Component {
     // 过滤项
     const filter = getFieldDecorator('na', {
       initialValue: keep.na,
-    })(<Input.Search size="small" placeholder="搜索名称" autoComplete="new-password" allowClear style={{ width: 111 }} />);
+    })(<Input.Search size="small" placeholder="搜索名称" autoComplete="off" allowClear style={{ width: 111 }} />);
 
     // 过滤项-高级
     const filters = [
       <Form.Item label="账号">
         {getFieldDecorator('no', {
           initialValue: keep.no,
-        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="new-password" />)}
+        })(<Input size="small" placeholder="请输入搜索关键字" autoComplete="off" />)}
       </Form.Item>,
     ];
 
