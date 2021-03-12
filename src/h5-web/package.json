@@ -88,7 +88,7 @@
     "rc-util": "^4.8.4",
     "react": "^16.4.1",
     "react-container-query": "^0.11.0",
-    "react-dev-utils": "^5.0.1",
+    "react-dev-utils": "^11.0.4",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.4.1",
     "react-fittext": "^1.0.0",
